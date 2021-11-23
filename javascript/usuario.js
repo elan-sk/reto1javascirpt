@@ -8,7 +8,7 @@ class Usuario {
     }
 
     saludar () {
-        return "Hola, soy " + this.nombre;
+        return alert("Hola, soy " + this.nombre);
     }
 };
 
