@@ -2,6 +2,7 @@
 export function escucharEventoId (id, evento, funcion) {
     let elemento = document.getElementById(id);
     elemento.addEventListener(evento, funcion);
+    return true;
 }
 
 
@@ -31,7 +32,7 @@ export function mostrarElementos(arreglo, boolean) {
        };
    }
 
-
+   return true;
 }
 
 export function habilitarElementos(arreglo, boolean) {
@@ -56,8 +57,16 @@ export function habilitarElementos(arreglo, boolean) {
             elemento.classList.add('deshabilitado');
         };
     }
+
+    return true;
 }
 
 export function opcionSeleccionada () {
-
+    const contenedorOpciones = document.getElementById("opciones-contenedor");
+    
+    let idElementoClick = contenedorOpciones.addEventListener("click", evento => {
+        if  (evento.target.classList.contains("btnOpcion")){
+            return console.log(evento.target.id);
+        }
+    })
 }

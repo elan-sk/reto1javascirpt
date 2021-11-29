@@ -15,9 +15,7 @@ function click() {
     return console.log("hice click");
 }
 
-controlador.habilitarElementos(document.getElementsByClassName("btnOpcion"), false);
-controlador.escucharEventoId("btnOpcion1","click", click);
-
+console.log(controlador.opcionSeleccionada());
 //  finPRUEBAS=====================================================================
 
 
