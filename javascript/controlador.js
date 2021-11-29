@@ -1,11 +1,11 @@
 
-export function ejecutarFuncionId (id, evento, funcion) {
+export function escucharEventoId (id, evento, funcion) {
     let elemento = document.getElementById(id);
     elemento.addEventListener(evento, funcion);
 }
 
 
-export function pintar (id, contenido) {
+export function escribir (id, contenido) {
     let elemento = document.getElementById(id);
     elemento.textContent = contenido;
     return true; 
@@ -16,67 +16,48 @@ export function mostrarElementos(arreglo, boolean) {
    let mostrar = boolean;
 
    for (const elemento of elementos) {
-       
        if (mostrar) {
-           console.log("Mostrar: ", mostrar)
-           elemento.classList.contains('oculto')
            if (elemento.classList.contains('oculto')){
-               elemento.classList.remove('oculto');
-               elemento.classList.add('visible');
-           } else {
-               elemento.classList.add('visible');
-           }
+                elemento.classList.remove('oculto');
+            }
+            elemento.classList.add('visible');
        } 
     
        if (!mostrar) {
            if (elemento.classList.contains('visible')){
-               elemento.classList.remove('visible');
-               elemento.classList.add('oculto');
-           } else {
-               elemento.classList.add('oculto');
+                elemento.classList.remove('visible');
            }
+           elemento.classList.add('oculto');
        };
-
    }
 
 
 }
 
-export function habilitarElementos(elementos, boolean) {
+export function habilitarElementos(arreglo, boolean) {
  
     let elementos = arreglo;
     let habilitar = boolean;
  
-    if (habilitar) {
-        console.log("Mostrar: ", mostrar)
-        elemento.classList.contains('oculto')
-        if (elemento.classList.contains('oculto')){
-            elemento.classList.remove('oculto');
-            elemento.classList.add('visible');
-        } else {
-            elemento.classList.add('visible');
-        }
-    } 
- 
-    if (!habilitar) {
-        if (elemento.classList.contains('visible')){
-            elemento.classList.remove('visible');
-            elemento.classList.add('oculto');
-        } else {
-            elemento.classList.add('oculto');
-        }
-    };
-
+    for (const elemento of elementos) {
+        if (habilitar) {
+            if (elemento.classList.contains('deshabilitado')){
+                elemento.classList.remove('deshabilitado');
+            } 
+            elemento.disabled = false;
+            elemento.classList.add('habilitado');
+        } 
+    
+        if (!habilitar) {
+            if (elemento.classList.contains('habilitado')){
+                elemento.classList.remove('habilitado');
+            } 
+            elemento.disabled = true;
+            elemento.classList.add('deshabilitado');
+        };
+    }
 }
 
 export function opcionSeleccionada () {
-    let opciones = document.getElementsByClassName("btnOpcion");
-    let idOpcionSeleccionada = "";
 
-    for (const opcion of opciones) {
-        idOpcionSeleccionada += opcion.name;
-    }
-
-
-    return idOpcionSeleccionada; 
 }

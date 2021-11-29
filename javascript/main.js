@@ -9,13 +9,15 @@ const Usuario1 = new Usuario("Camilo");
 //Creación de Examen=================
 const ExamenComida = new Examen("Origen de la comida",Usuario1, preguntas);
 
+
+//  PRUEBAS=====================================================================
 function click() {
     return console.log("hice click");
 }
 
-controlador.mostrarElementos([document.getElementById("btnOpcion1")], false);
+controlador.habilitarElementos(document.getElementsByClassName("btnOpcion"), false);
+controlador.escucharEventoId("btnOpcion1","click", click);
 
-
-
+//  finPRUEBAS=====================================================================
 
 
