@@ -61,7 +61,7 @@ export function habilitarElementos(arreglo, boolean) {
     return true;
 }
 
-export function opcionSeleccionada () {
+function escucharBotones () {
     const contenedorOpciones = document.getElementById("opciones-contenedor");
     
     let idElementoClick = contenedorOpciones.addEventListener("click", evento => {
@@ -69,4 +69,21 @@ export function opcionSeleccionada () {
             return console.log(evento.target.id);
         }
     })
+
+    return idElementoClick;
 }
+
+export async function opcionSeleccionada () {
+   const idElementoClick = escucharBotones();
+   return idElementoClick;
+}
+
+/*   const contenedorOpciones = document.getElementById("opciones-contenedor");
+  
+  let idElementoClick = contenedorOpciones.addEventListener("click", evento => {
+      if  (evento.target.classList.contains("btnOpcion")){
+          return console.log(evento.target.id);
+      }
+  })
+
+  return idElementoClick; */
