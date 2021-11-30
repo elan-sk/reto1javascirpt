@@ -18,7 +18,7 @@
 }
 
 .opcion--correcta:hover, .opcion--correcta:disabled{
-    background-color: green;
+    background-color: $colorBotonCorrecto;
     color: white;
 }
 
