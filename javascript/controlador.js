@@ -12,24 +12,23 @@ export function escribir (id, contenido) {
     return true; 
 }
 
+export function reemplazarClase (elemento, claseNueva, claseAntigua){
+    if (elemento.classList.contains(claseAntigua)){
+        elemento.classList.remove(claseAntigua);
+    }
+    elemento.classList.add(claseNueva);
+}
+
 export function mostrarElementos(arreglo, boolean) {
    let elementos = arreglo;
    let mostrar = boolean;
 
    for (const elemento of elementos) {
        if (mostrar) {
-           if (elemento.classList.contains('oculto')){
-                elemento.classList.remove('oculto');
-            }
-            elemento.classList.add('visible');
-       } 
-    
-       if (!mostrar) {
-           if (elemento.classList.contains('visible')){
-                elemento.classList.remove('visible');
-           }
-           elemento.classList.add('oculto');
-       };
+            reemplazarClase(elemento,"visible","oculto");
+       }else {
+           reemplazarClase(elemento, "oculto", "visible");
+       }
    }
 
    return true;
@@ -42,27 +41,19 @@ export function habilitarElementos(arreglo, boolean) {
  
     for (const elemento of elementos) {
         if (habilitar) {
-            if (elemento.classList.contains('deshabilitado')){
-                elemento.classList.remove('deshabilitado');
-            } 
+            reemplazarClase(elemento,"habilitado","deshabilitado");
             elemento.disabled = false;
-            elemento.classList.add('habilitado');
-        } 
-    
-        if (!habilitar) {
-            if (elemento.classList.contains('habilitado')){
-                elemento.classList.remove('habilitado');
-            } 
+        } else {
+            reemplazarClase(elemento,"deshabilitado","habilitado");
             elemento.disabled = true;
-            elemento.classList.add('deshabilitado');
-        };
+        }
     }
 
     return true;
 }
 
-function escucharBotones () {
-    const contenedorOpciones = document.getElementById("opciones-contenedor");
+function escucharBotones (contenedor) {
+    const contenedorOpciones = document.getElementById(contenedor);
     
     let idElementoClick = contenedorOpciones.addEventListener("click", evento => {
         if  (evento.target.classList.contains("btnOpcion")){
@@ -74,7 +65,7 @@ function escucharBotones () {
 }
 
 export async function opcionSeleccionada () {
-   const idElementoClick = escucharBotones();
+   const idElementoClick = escucharBotones("opciones-contenedor");
    return idElementoClick;
 }
 

@@ -6,10 +6,23 @@
     display: initial;
 }
 
-.deshabilitado {
-    //codigo en estudio
+.deshabilitado:hover, .deshabilitado:disabled {
+    background:beige;
+    border: black;
+    color: black;
+    cursor:default;
 }
 
 .habilitado {
    //codigo en estudio
+}
+
+.opcion--correcta:hover, .opcion--correcta:disabled{
+    background-color: green;
+    color: white;
+}
+
+.opcion--incorrecta:hover, .opcion--incorrecta:disabled {
+    background-color: red;
+    color: white;
 }
