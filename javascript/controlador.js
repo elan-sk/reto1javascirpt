@@ -6,14 +6,14 @@ export function escucharEventoId (id, evento, funcion) {
 }
 
 //Muestra en un elemento HTML un texto determinado
-export function escribir (id, contenido) {
+export function escribir (id, texto) {
     let elemento = document.getElementById(id);
-    elemento.textContent = contenido;
+    elemento.textContent = texto;
     return true; 
 }
 
-//Reemplaza la clase de un elemento HTML por otra. ejp: "oculto" por "visible"
-//Nota: Se debe enviar como argumento el nombre de la clase sin el punto (.)
+//Reemplaza una clase de un elemento HTML por otra. ejp: "oculto" por "visible"
+//Nota: Se debe enviar como argumento el nombre de las clases sin el punto (.)
 export function reemplazarClase (elemento, claseNueva, claseAntigua){
     if (elemento.classList.contains(claseAntigua)){
         elemento.classList.remove(claseAntigua);
@@ -71,11 +71,13 @@ export function habilitarElementos(arreglo, boolean) {
 }
 
 //Funcion no exportada que se usa como callBack en la funcion opcionSeleccionada()
-function escucharBotones (contenedor) {
+//Y se encarga de escuchar un tipo de elemento dentro de un contenedor y ejemplo:
+    // Escuchar los elementos de clase "boton" dentro de un contenedor "boton-contenedor"
+function escucharBotones (contenedor, claseElementos) {
     const contenedorOpciones = document.getElementById(contenedor);
     
     let idElementoClick = contenedorOpciones.addEventListener("click", evento => {
-        if  (evento.target.classList.contains("btnOpcion")){
+        if  (evento.target.classList.contains(claseElementos)){
             return console.log(evento.target.id);
         }
     })
@@ -83,7 +85,9 @@ function escucharBotones (contenedor) {
     return idElementoClick;
 }
 
-//Se usas una promesa debido a que escucharBotones() es una funcion asincrona
+
+//Devuelve el Id del elemento seleccionado dentro de un contenedor
+//Nota: Se usas una promesa debido a que escucharBotones() es una funcion de naturaleza asincrona
 export async function opcionSeleccionada () {
    const idElementoClick = escucharBotones("opciones-contenedor");
    return idElementoClick;
