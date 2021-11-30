@@ -21,12 +21,13 @@ export function reemplazarClase (elemento, claseNueva, claseAntigua){
     elemento.classList.add(claseNueva);
 }
 
+
 //Muestra u oculta uno o varios elemento de HTML
 //Nota: Como primer argumento se debe mandar un arreglo de elementos ejp: 
     //mostrarElementos(document.getElementsByClassName("botones"), false);
     //En el caso de que solo sea un elemento debes mandarlo como un arreglo ejp:
-    //mostrarElementos([document.getElementById("botones")], false);
-//El segundo argumento es el controla si se muestra o se oculta el elemento:
+    //mostrarElementos([document.getElementById("boton1")], false);
+//El segundo argumento es el que controla si se muestra o se oculta el elemento:
     //true = Mostrar
     //false = Ocultar 
 export function mostrarElementos(arreglo, boolean) {
@@ -49,9 +50,9 @@ export function mostrarElementos(arreglo, boolean) {
     //mostrarElementos(document.getElementsByClassName("botones"), false);
     //En el caso de que solo sea un elemento debes mandarlo como un arreglo ejp:
     //mostrarElementos([document.getElementById("botones")], false);
-//El segundo argumento es el controla si se Habilita o se Deshabilita el elemento:
-    //true = Mostrar
-    //false = Ocultar 
+//El segundo argumento es el que controla si se Habilita o se Deshabilita el elemento:
+    //true = Habilitar
+    //false = Deshabilitar 
 export function habilitarElementos(arreglo, boolean) {
  
     let elementos = arreglo;
@@ -73,7 +74,7 @@ export function habilitarElementos(arreglo, boolean) {
 //Funcion no exportada que se usa como callBack en la funcion opcionSeleccionada()
 //Y se encarga de escuchar un tipo de elemento dentro de un contenedor y ejemplo:
     // Escuchar los elementos de clase "boton" dentro de un contenedor "boton-contenedor"
-function escucharBotones (contenedor, claseElementos) {
+function escucharElementos (contenedor, claseElementos) {
     const contenedorOpciones = document.getElementById(contenedor);
     
     let idElementoClick = contenedorOpciones.addEventListener("click", evento => {
@@ -87,9 +88,9 @@ function escucharBotones (contenedor, claseElementos) {
 
 
 //Devuelve el Id del elemento seleccionado dentro de un contenedor
-//Nota: Se usas una promesa debido a que escucharBotones() es una funcion de naturaleza asincrona
-export async function opcionSeleccionada () {
-   const idElementoClick = escucharBotones("opciones-contenedor");
+//Nota: Se usas una promesa debido a que escucharElementos() es una funcion de naturaleza asincrona
+export async function ElementoSeleccionado (contenedor, claseElementos) {
+   const idElementoClick = escucharElementos(contenedor, claseElementos);
    return idElementoClick;
 }
 
