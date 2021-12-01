@@ -26,3 +26,32 @@
     background-color: red;
     color: white;
 }
+
+#mensaje {
+    position: fixed;
+
+    #mensaje-contenedor {
+        background-color: beige;
+        border: 2px solid black;
+        width: 50%;
+        height: max-content;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2.5em;
+        padding: 1em;
+        position: fixed;
+        top:45%;
+        left:50%;
+        transform: translate(-50%,-50%);
+    
+        #mensaje-texto {
+            width: 100%;
+            text-align: center;
+        }
+
+        #mensaje-boton {
+            padding: .5em;
+        }
+    }
+}

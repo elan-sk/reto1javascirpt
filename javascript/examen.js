@@ -30,4 +30,10 @@ class Examen {
         return {"Calificacion":this.calificacion, "PreguntaCorrectas":preguntasCorrectas, "PreguntaIncorrectas":preguntasIncorrectas, "TotalPreguntas":this.preguntas.length}
     }
 
+    //Se encarga de desordenar el orden de las preguntas
+    desordenarPreguntas () {
+        this.preguntas.sort(function() { return Math.random() - 0.5 });
+        return true;
+    }
+
 }

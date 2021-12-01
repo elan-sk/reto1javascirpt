@@ -1,39 +1,65 @@
 import {preguntas} from "./creadorPreguntas.js";
 import {Usuario} from "./usuario.js";
 import {Examen} from "./examen.js";
-import * as controlador from "./controlador.js";
+import * as cont from "./controlador.js";
+var salir;
 
-//Creación de usuario==========================
+(async function Inicio () {
+
+    (async function seccionLogin () {
+        let elemento = document.getElementById("login");
+        const mostrarLogin = cont.mostrarElementos([elemento],true);
+    })()
+
+    (async function seccionPreguntas () {
+        let elemento = document.getElementById("preguntas");
+        const mostrarLogin = cont.mostrarElementos([elemento],true);
+    })()
+})()
+
+//Funciones
+
+/* //Creación de usuario==========================
 const Usuario1 = new Usuario("Camilo");
 
 //Creación de Examen=================
-const ExamenComida = new Examen("Origen de la comida",Usuario1, preguntas);
+const ExamenComida = new Examen("Origen de la comida",Usuario1, preguntas); */
 
-controlador.mostrarElementos([document.getElementById("preguntas")],true);
+//login==========================================================
+/* cont.mostrarElementos([document.getElementById("login")],true);
 
-controlador.escribir("encabezado",preguntas[0].encabezado);
+const login = async () => {
+    let alias = document.getElementById("alias");
+    let btnIngresar = document.getElementById("btnIngresar");
+    
+    if (btnIngresar.addEventListener){
+       btnIngresar.addEventListener("click", ()=>{
+            console.log ("entre")
+            salir = false;
+        })
+    }
+}
+    
+    
+} while (salir);
 
-controlador.escribir("btnOpcion1",preguntas[0].opciones[0]);
-controlador.escribir("btnOpcion2",preguntas[0].opciones[1]);
-controlador.escribir("btnOpcion3",preguntas[0].opciones[2]);
-controlador.escribir("btnOpcion4",preguntas[0].opciones[3]);
+console.log("sali del bucle");
+console.log(cont.mostrarMensaje("Hola deseas salir", "salir"));
+
+/* 
+
+if (document.getElementById("mensaje-boton").addEventListener){
+    cont.escucharEventoId("mensaje-boton", "click", () => {
+        cont.mostrarElementos([document.getElementById("mensaje")],false);
+        cont.mostrarElementos([document.getElementById("preguntas")],true);
+    })
+} */
+
+
 
 //  PRUEBAS=====================================================================
-function click() {
-    return console.log("hice click");
-}
 
 
-/* controlador.habilitarElementos(document.getElementsByClassName("btnOpcion"),false);
-
-controlador.reemplazarClase(document.getElementById("btnOpcion2"), "opcion--correcta", "opcion--incorrecta");
-
-controlador.reemplazarClase(document.getElementById("btnOpcion3"), "opcion--incorrecta" , "opcion--correcta"); */
-
-
-console.log(controlador.opcionSeleccionada());
-
-/* console.log(controlador.opcionSeleccionada()); */
 //  finPRUEBAS=====================================================================
 
 
