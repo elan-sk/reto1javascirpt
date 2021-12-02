@@ -1,10 +1,15 @@
 //Se encarga de escuchar un evento de un Elemento HTML y ejecutar un funcion cuando se active dicho evento.
 export function escucharEventoId (id, evento, funcion) {
-    let elemento = document.getElementById(id);
-
-    if (elemento.addEventListener) {
-        elemento.addEventListener(evento, funcion.name);
-    }
+    return new Promise((resolve, reject) =>{
+        let elemento = document.getElementById(id);
+    
+        if (elemento.addEventListener) {
+            elemento.addEventListener(evento, funcion);
+            resolve(true);
+        } else {
+             reject(true);
+        }
+    })
 }
 
 //Muestra en un elemento HTML un texto determinado
