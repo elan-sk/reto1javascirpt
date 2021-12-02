@@ -99,6 +99,8 @@ function escucharElementos (contenedor, claseElementos, evento) {
     })
 
     return idElementoClick;
+
+    
 }
 
 
