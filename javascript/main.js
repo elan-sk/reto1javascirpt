@@ -36,18 +36,24 @@ const mensajeBoton = document.getElementById("mensaje-boton");
     const clickIngresar = () => {
         return new Promise(resolve => {
             btnIngresar.addEventListener("click", function () {
-                alert(inputAlias.value);
-                console.log(document.getElementById("alias").value);
-                controlador.mostrarElementos ([seccionLogin], false);
-                controlador.mostrarElementos ([seccionPreguntas], true);
-                resolve(true);
+                if(inputAlias.value.trim()){
+                    let usuario = new Usuario (inputAlias.value.trim());
+                    const examen = new Examen ("Comidas del mundo", usuario, preguntas);
+                    controlador.mostrarElementos ([seccionLogin], false);
+                    controlador.mostrarElementos ([seccionPreguntas], true);
+                    resolve(examen);
+                }else{
+                    inputAlias.value = "";
+                    controlador.mostrarMensaje("¡Debe ingresar un alias!", "Aceptar");
+                };
             });
         })
     };
 
-    fp = await clickIngresar();
+    const examenComida = await clickIngresar();
 
-    controlador.mostrarElementos ([seccionResultados], true);
+    alert("Bienvenido: " + examenComida.usuario.nombre);
+    
     
     
 })();

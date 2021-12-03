@@ -1,13 +1,3 @@
-//Se encarga de escuchar un evento de un Elemento HTML y ejecutar un funcion cuando se active dicho evento.
-/* export function escucharEventoId (id, evento, funcion) {
-        let elemento = document.getElementById(id);
-    
-        if (elemento.addEventListener) {
-            elemento.addEventListener(evento, funcion);
-            resolve("true");
-        }
-}
- */
 //Muestra en un elemento HTML un texto determinado
 export function escribir (id, texto) {
     let elemento = document.getElementById(id);
@@ -25,7 +15,7 @@ export function obtenerTexto (id) {
 //Reemplaza una clase de un elemento HTML por otra. ejp: "oculto" por "visible"
 //Nota: Se debe enviar como argumento el nombre de las clases sin el punto (.)
 export function reemplazarClase (elemento, claseNueva, claseAntigua){
-    if (elemento.classList.contains(claseAntigua)){
+    if (elemento.classList.contains(claseAntigua) ){
         elemento.classList.remove(claseAntigua);
     }
     elemento.classList.add(claseNueva);
@@ -109,21 +99,22 @@ export async function elementoSeleccionado (contenedor, claseElementos, evento) 
 
 //mostrar mensaje de al usuario.
 export function mostrarMensaje (textoMensaje, textoBoton) {
-    let idContenedorMensaje = "mensaje";
-    let idTexto = "mensaje-texto";
-    let idBoton = "mensaje-boton"; 
+    return new Promise (resolve => {
+        let idContenedorMensaje = "seccionMensaje";
+        let idTexto = "mensaje-texto";
+        let idBoton = "mensaje-boton"; 
+    
+        mostrarElementos ([document.getElementById(idContenedorMensaje)], true);
+    
+        escribir(idTexto, textoMensaje);
+        escribir(idBoton, textoBoton);
 
-    mostrarElementos ([document.getElementById(idContenedorMensaje)], true);
-
-    escribir(idTexto, textoMensaje);
-    escribir(idBoton, textoBoton);
+        document.getElementById(idBoton).addEventListener("click", function () {
+            mostrarElementos ([document.getElementById(idContenedorMensaje)], false);
+        });
+    })
 }
 
-export function cerrarMensaje () {
-    let idContenedorMensaje = "mensaje";
-    mostrarElementos ([document.getElementById(idContenedorMensaje)], false);
-    return true;
-}
 
 /*  function resolveAfter2Seconds() {
     return new Promise(resolve => {
