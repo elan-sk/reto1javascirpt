@@ -1,21 +1,17 @@
 //Se encarga de escuchar un evento de un Elemento HTML y ejecutar un funcion cuando se active dicho evento.
-export function escucharEventoId (id, evento, funcion) {
-    return new Promise((resolve, reject) =>{
+/* export function escucharEventoId (id, evento, funcion) {
         let elemento = document.getElementById(id);
     
         if (elemento.addEventListener) {
             elemento.addEventListener(evento, funcion);
-            resolve(true);
-        } else {
-             reject(true);
+            resolve("true");
         }
-    })
 }
-
+ */
 //Muestra en un elemento HTML un texto determinado
 export function escribir (id, texto) {
     let elemento = document.getElementById(id);
-    elemento.textContent = texto;
+    elemento.innerHTML= texto;
     return true; 
 }
 
@@ -46,16 +42,16 @@ export function reemplazarClase (elemento, claseNueva, claseAntigua){
     //true = Mostrar
     //false = Ocultar 
 export function mostrarElementos(arregloElementos, boolean) {
-   let elementos = arregloElementos;
-   let mostrar = boolean;
-
-   for (const elemento of elementos) {
-       if (mostrar) {
-            reemplazarClase(elemento,"visible","oculto");
-       }else {
-           reemplazarClase(elemento, "oculto", "visible");
+       let elementos = arregloElementos;
+       let mostrar = boolean;
+    
+       for (const elemento of elementos) {
+           if (mostrar) {
+                reemplazarClase(elemento,"visible","oculto");
+           }else {
+               reemplazarClase(elemento, "oculto", "visible");
+           }
        }
-   }
 
    return true;
 }
@@ -90,17 +86,15 @@ export function habilitarElementos(arregloElementos, boolean) {
 //Y se encarga de escuchar un tipo de elemento dentro de un contenedor y ejemplo:
     // Escuchar los elementos de clase "boton" dentro de un contenedor "boton-contenedor"
 function escucharElementos (contenedor, claseElementos, evento) {
-    const contenedorOpciones = document.getElementById(contenedor);
-    
-    let idElementoClick = contenedorOpciones.addEventListener(evento, evento => {
-        if  (evento.target.classList.contains(claseElementos)){
-            return console.log(evento.target.id);
-        }
+    return new Promise (resolve => {
+        const contenedorOpciones = document.getElementById(contenedor);
+        
+        let idElementoClick = contenedorOpciones.addEventListener(evento, evento => {
+            if  (evento.target.classList.contains(claseElementos)){
+                resolve (evento.target.id);
+            }
+        })
     })
-
-    return idElementoClick;
-
-    
 }
 
 
