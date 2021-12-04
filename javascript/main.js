@@ -57,10 +57,17 @@ const mensajeBoton = document.getElementById("mensaje-boton");
     controlador.mostrarElementos([seccionPreguntas], true);
     controlador.desordenar(examenComida.preguntas);
     const {preguntas} = examenComida;
+
+/*     const jugar = (arregloPreguntas) => {
+        arregloPreguntas
+    } */
  
 
     controlador.cargarPregunta(preguntas[0], encabezado, imagen, btnsOpcion);
-   
+
+    const opcionSeleccionada = await controlador.elementoSeleccionado(contenedorOpciones, "btnOpcion" , "click");
+
+    alert(opcionSeleccionada);
 
    /*  console.log(controlador.letra(3));
  */

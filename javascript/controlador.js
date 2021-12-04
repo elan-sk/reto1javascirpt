@@ -5,13 +5,14 @@ export function escribir (id, texto) {
     return true; 
 }
 
+//carga la imagen 
 export function pintar (id, srcImagen) {
     let elemento = document.getElementById(id);
     elemento.src = srcImagen;
     return true; 
 }
 
-
+//obtener texto 
 export function obtenerTexto (id) {
     let elemento = document.getElementById(id);
     let texto = elemento.textContent;
@@ -78,27 +79,22 @@ export function habilitarElementos(arregloElementos, boolean) {
     return true;
 }
 
+
 //Funcion no exportada que se usa como callBack en la funcion opcionSeleccionada()
 //Y se encarga de escuchar un tipo de elemento dentro de un contenedor y ejemplo:
     // Escuchar los elementos de clase "boton" dentro de un contenedor "boton-contenedor"
-function escucharElementos (contenedor, claseElementos, evento) {
-    return new Promise (resolve => {
-        const contenedorOpciones = document.getElementById(contenedor);
-        
-        let idElementoClick = contenedorOpciones.addEventListener(evento, evento => {
+//Devuelve el Id del elemento seleccionado dentro de un contenedor
+//Nota: Se usas una promesa debido a que escucharElementos() es una funcion de naturaleza asincrona
+export function elementoSeleccionado (elementoContenedor, claseElementos, evento) {
+    return new Promise (resolve =>{
+        const contenedorOpciones = elementoContenedor;
+             
+        contenedorOpciones.addEventListener(evento, evento => {
             if  (evento.target.classList.contains(claseElementos)){
-                resolve (evento.target.id);
+             resolve (evento.target.id);
             }
         })
     })
-}
-
-
-//Devuelve el Id del elemento seleccionado dentro de un contenedor
-//Nota: Se usas una promesa debido a que escucharElementos() es una funcion de naturaleza asincrona
-export async function elementoSeleccionado (contenedor, claseElementos, evento) {
-   const idElementoClick = escucharElementos(contenedor, claseElementos, evento);
-   return idElementoClick;
 }
 
 //
@@ -128,16 +124,14 @@ export function cargarPregunta(pregunta, tituloEncabezado, ImgPregunta, arregloB
 
     escribir(tituloEncabezado.id, encabezado);
     pintar (ImgPregunta.id, imagen);
-    let suma =0;
+    desordenar(opciones);
+    
     for (const indice in arregloBotones) {
         /* console.log(typeof indice); */
         console.log(arregloBotones[indice].textContent);
         
        escribir(arregloBotones[indice].id, letra(indice) + opciones[indice].texto);
-      suma++;
     }
-
-    console.log(suma);
 
     return true;
 }
@@ -164,6 +158,7 @@ export function desordenar(arreglo) {
     return arreglo;
 }
 
+//devuelve la letra de la opcion de la pregunta segun el numero de la posicion en el el arreglo
 export function letra (indice) {
     let letra;
     
@@ -181,8 +176,32 @@ export function letra (indice) {
             letra = "D";
             break;
         default:
-            letra= "no valido";
+            return letra= "no valido";
+      }
+
+    return letra +=". " ;
+}
+
+
+//devuelve la numero de la posicion según el nombre del id del boton seleccionado.
+export function letra (clasedel) {
+    let letra;
+    
+    switch (parseInt(indice)) {
+        case 0:
+            letra = "A";
             break;
+        case 1:
+            letra = "B";
+            break;
+        case 2:
+            letra = "C";
+            break;
+        case 3:
+            letra = "D";
+            break;
+        default:
+            return letra= "no valido";
       }
 
     return letra +=". " ;

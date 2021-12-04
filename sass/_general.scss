@@ -12,15 +12,15 @@ section {
 
 .contenedor{
     max-width: max-content;
-    height: max-content;
+    max-height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: 2em;
     padding: 1em;
     position: absolute;
-    top:45%;
+    top:50%;
     left:50%;
     transform: translate(-50%,-50%);
 }
@@ -29,3 +29,4 @@ h1 {
     font-size: 3em;
     text-align: center;
 }
+
