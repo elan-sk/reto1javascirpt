@@ -2,12 +2,10 @@ export {Pregunta};
 
 class Pregunta {
     //Natti
-    constructor(encabezado,opciones,opcionCorrecta,imagen) {
+    constructor(encabezado,opciones,imagen) {
         this.encabezado=encabezado;
         this.opciones=opciones;
-        this.opcionCorrecta=opcionCorrecta;
         this.imagen=imagen; 
-        //Atributo que guarda la información si y se contestó o no la pregunta.
         this.respondido= false;
     }
     //función que se encarga de validar si el usuario respondio correctamente. 

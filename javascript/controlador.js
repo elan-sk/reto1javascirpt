@@ -1,7 +1,13 @@
 //Muestra en un elemento HTML un texto determinado
 export function escribir (id, texto) {
     let elemento = document.getElementById(id);
-    elemento.innerHTML= texto;
+    elemento.textContent = texto;
+    return true; 
+}
+
+export function pintar (id, srcImagen) {
+    let elemento = document.getElementById(id);
+    elemento.src = srcImagen;
     return true; 
 }
 
@@ -116,19 +122,68 @@ export function mostrarMensaje (textoMensaje, textoBoton) {
 }
 
 
-/*  function resolveAfter2Seconds() {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve('resolved');
-      }, 15000);
-    });
-  }
-  
-  export async function asyncCall() {
-    console.log('calling');
-    const result = await resolveAfter2Seconds();
-    console.log(result);
-    // expected output: "resolved"
-  }
-   */
+//Función de carga las pregunta en la página.
+export function cargarPregunta(pregunta, tituloEncabezado, ImgPregunta, arregloBotones) {
+    const{encabezado, opciones, imagen} = pregunta;
+
+    escribir(tituloEncabezado.id, encabezado);
+    pintar (imagen.id, ImgPregunta);
+    let suma =0;
+    for (const indice in arregloBotones) {
+        /* console.log(typeof indice); */
+        console.log(arregloBotones[indice].textContent);
+        
+       escribir(arregloBotones[indice].id, letra(indice) + opciones[indice].texto);
+      suma++;
+    }
+
+    console.log(suma);
+
+    return true;
+}
+
+
+//Se encarga de desordenar el orden de las preguntas
+export function desordenar(arreglo) {
+    let indiceActual = arreglo.length, valorTemporal, IndiceAleatorio;
     
+    // Mientras queden elementos a mezclar...
+    while (0 !== indiceActual) {
+    
+        // Seleccionar un elemento sin mezclar...
+        IndiceAleatorio = Math.floor(Math.random() * indiceActual);
+        indiceActual -= 1;
+    
+        // E intercambiarlo con el elemento actual
+        valorTemporal = arreglo[indiceActual];
+        arreglo[indiceActual] = arreglo[IndiceAleatorio];
+        arreglo[IndiceAleatorio] = valorTemporal;
+    }
+    
+
+    return arreglo;
+}
+
+export function letra (indice) {
+    let letra;
+    
+    switch (parseInt(indice)) {
+        case 0:
+            letra = "A";
+            break;
+        case 1:
+            letra = "B";
+            break;
+        case 2:
+            letra = "C";
+            break;
+        case 3:
+            letra = "D";
+            break;
+        default:
+            letra= "no valido";
+            break;
+      }
+
+    return letra +="). " ;
+}
