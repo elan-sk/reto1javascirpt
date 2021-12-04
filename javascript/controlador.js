@@ -127,7 +127,7 @@ export function cargarPregunta(pregunta, tituloEncabezado, ImgPregunta, arregloB
     const{encabezado, opciones, imagen} = pregunta;
 
     escribir(tituloEncabezado.id, encabezado);
-    pintar (imagen.id, ImgPregunta);
+    pintar (ImgPregunta.id, imagen);
     let suma =0;
     for (const indice in arregloBotones) {
         /* console.log(typeof indice); */
@@ -185,5 +185,5 @@ export function letra (indice) {
             break;
       }
 
-    return letra +="). " ;
+    return letra +=". " ;
 }
