@@ -79,6 +79,10 @@ export function habilitarElementos(arregloElementos, boolean) {
     return true;
 }
 
+export function restaurarBotones(arregloBotones){
+
+}
+
 
 //Funcion no exportada que se usa como callBack en la funcion opcionSeleccionada()
 //Y se encarga de escuchar un tipo de elemento dentro de un contenedor y ejemplo:
@@ -127,9 +131,6 @@ export function cargarPregunta(pregunta, tituloEncabezado, ImgPregunta, arregloB
     desordenar(opciones);
     
     for (const indice in arregloBotones) {
-        /* console.log(typeof indice); */
-        console.log(arregloBotones[indice].textContent);
-        
        escribir(arregloBotones[indice].id, letra(indice) + opciones[indice].texto);
     }
 
@@ -159,7 +160,7 @@ export function desordenar(arreglo) {
 }
 
 //devuelve la letra de la opcion de la pregunta segun el numero de la posicion en el el arreglo
-export function letra (indice) {
+function letra (indice) {
     let letra;
     
     switch (parseInt(indice)) {
@@ -184,25 +185,32 @@ export function letra (indice) {
 
 
 //devuelve la numero de la posicion según el nombre del id del boton seleccionado.
-export function letra (clasedel) {
-    let letra;
+export function posicionOpcion (IdOpcion) {
+    let posicion;
     
-    switch (parseInt(indice)) {
-        case 0:
-            letra = "A";
+    switch (IdOpcion) {
+        case "btnOpcion1":
+            posicion = 0;
             break;
-        case 1:
-            letra = "B";
+        case "btnOpcion2":
+            posicion = 1;
             break;
-        case 2:
-            letra = "C";
+        case "btnOpcion3":
+            posicion = 2;
             break;
-        case 3:
-            letra = "D";
+        case "btnOpcion4":
+            posicion = 3;
             break;
         default:
-            return letra= "no valido";
+            return posicion= "no valido";
       }
 
-    return letra +=". " ;
+    return posicion;
+}
+
+//Detiene el flujo del programa por un determinado numero de segundos.
+export function esperarSegundos (tiempoSegundos){
+    return new Promise(resolve => {
+        setInterval(()=>{resolve(true)},tiempoSegundos*1000);
+    })
 }

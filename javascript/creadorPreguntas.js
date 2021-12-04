@@ -1,4 +1,4 @@
-import {Pregunta} from "./pregunta.js";
+import {Pregunta} from "./Pregunta.js";
 
 export{preguntasCreadas};
 

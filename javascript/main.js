@@ -1,6 +1,6 @@
 import {preguntasCreadas} from "./creadorPreguntas.js";
-import {Usuario} from "./usuario.js";
-import {Examen} from "./examen.js";
+import {Usuario} from "./Usuario.js";
+import {Examen} from "./Examen.js";
 import * as controlador from "./controlador.js";
 
 // VARIABLES ==================================================================
@@ -57,18 +57,36 @@ const mensajeBoton = document.getElementById("mensaje-boton");
     controlador.mostrarElementos([seccionPreguntas], true);
     controlador.desordenar(examenComida.preguntas);
     const {preguntas} = examenComida;
+    
+    //inicio for--------------------------------------------------------------
+    let indicePregunta = 0;
+    let pregunta = preguntas[indicePregunta];
 
-/*     const jugar = (arregloPreguntas) => {
-        arregloPreguntas
-    } */
- 
+    controlador.cargarPregunta(pregunta, encabezado, imagen, btnsOpcion);
+    const IdOpcionSeleccionada = await controlador.elementoSeleccionado(contenedorOpciones, "btnOpcion" , "click");
+    let {opciones} = pregunta;
+    let indiceOpcionSeleccionada = controlador.posicionOpcion(IdOpcionSeleccionada);
+    pregunta.evaluar(indiceOpcionSeleccionada);
+    let opcionSeleccionada = opciones[indiceOpcionSeleccionada];
 
-    controlador.cargarPregunta(preguntas[0], encabezado, imagen, btnsOpcion);
+    await controlador.esperarSegundos(0.7);
+    
+    if (opcionSeleccionada.correcta){
+        controlador.reemplazarClase(document.getElementById(IdOpcionSeleccionada),"opcion--correcta","opcion--incorrecta");
+    } else {
+        for (const indice in opciones) {
+            if(opciones[indice].correcta) {
+                controlador.reemplazarClase(btnsOpcion[indice],"opcion--correcta","opcion--incorrecta"); 
+            }else {
+                controlador.reemplazarClase(btnsOpcion[indice],"opcion--incorrecta","opcion--correcta"); 
+            }
+        }
+    }
 
-    const opcionSeleccionada = await controlador.elementoSeleccionado(contenedorOpciones, "btnOpcion" , "click");
+    controlador.habilitarElementos(btnsOpcion, false);
+    await controlador.esperarSegundos(1);
 
-    alert(opcionSeleccionada);
-
+   
    /*  console.log(controlador.letra(3));
  */
 

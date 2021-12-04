@@ -10,16 +10,14 @@ class Pregunta {
     }
     //función que se encarga de validar si el usuario respondio correctamente. 
     evaluar (opcionSeleccionada) {
-        this.opcionSeleccionada = opcionSeleccionada;
+        
         this.respondido = true;
 
-        if (this.opcionSeleccionada === this.opcionCorrecta){
+        if (this.opciones[opcionSeleccionada].correcta){
             this.evaluacion = true;
-            console.log("Muy bien! acertaste");
             return true;
         } else {
             this.evaluacion = false;
-            console.log("Que mal! Te equivocaste");
             return false; 
         }
     }

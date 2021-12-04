@@ -7,22 +7,19 @@
 }
 
 .deshabilitado:hover, .deshabilitado:disabled {
-    background:beige;
-    border: black;
-    color: black;
     cursor:default;
 }
 
 .habilitado {
-   //codigo en estudio
+    cursor:pointer;
 }
 
-.opcion--correcta:hover, .opcion--correcta:disabled{
+.opcion--correcta, .opcion--correcta:hover, .opcion--correcta:disabled{
     background-color: $colorBotonCorrecto;
-    color: white;
+    color: black;
 }
 
-.opcion--incorrecta:hover, .opcion--incorrecta:disabled {
+.opcion--incorrecta, .opcion--incorrecta:hover, .opcion--incorrecta:disabled {
     background-color: red;
     color: white;
 }
