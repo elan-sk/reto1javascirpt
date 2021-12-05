@@ -71,6 +71,7 @@ export function restaurarElementos(arregloElementos){
         removerClase (boton, "opcion--incorrecta");
         removerClase (boton, "deshabilitado");
     }
+    return true;
 }
 
 
