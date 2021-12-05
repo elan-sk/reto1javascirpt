@@ -10,27 +10,28 @@
 <body>
     <section id="seccionLogin">
         <div class="contenedor">
-            <input type="text" aria-label="Alias" id="alias" type="text">
-            <button id="btnIngresar">Ingresar</button>
+            <input type="text" aria-label="Alias" id="alias">
+            <button type="button" id="btnIngresar">Ingresar</button>
         </div>
     </section>
 
     <section id="seccionPreguntas">
         <div class="contenedor">
             <h1 id="encabezado">Encabezado</h1>
-            
             <picture class="contenedor-imagen">
+                <div id="numeroPregunta"></div>
                 <img id="imagen">
             </picture>
-            
-            <div id="opciones-contenedor">
-                <button type="button" class="btnOpcion btnOpcion1" id="btnOpcion1">opcion1</button>
-                
-                <button type="button" class="btnOpcion btnOpcion2" id="btnOpcion2">opcion2</button>
-                
-                <button type="button" class="btnOpcion btnOpcion3" id="btnOpcion3">opcion3</button>
-                
-                <button type="button" class="btnOpcion btnOpcion4" id="btnOpcion4">opcion4</button>
+            <div class="opciones">
+                <div id="opciones-contenedor">
+                    <button type="button" class="btnOpcion btnOpcion1" id="btnOpcion1">opcion1</button>
+                    
+                    <button type="button" class="btnOpcion btnOpcion2" id="btnOpcion2">opcion2</button>
+                    
+                    <button type="button" class="btnOpcion btnOpcion3" id="btnOpcion3">opcion3</button>
+                    
+                    <button type="button" class="btnOpcion btnOpcion4" id="btnOpcion4">opcion4</button>
+                </div>
             </div>
     
             <script src="javascript/main.js" type="module"></script>
@@ -38,15 +39,22 @@
     </section>
 
     <section id="seccionResultados">
-        <dir class="contenedor">
-            <dir>seccion de resultados</dir>
-        </dir>
+        <div class="contenedor" id="resultado-contenedor">
+            <div id="resultado-contenedor-texto" >
+                <h2 id="resultado-encabezado">resultados</h2>
+                <p id="resultado-texto"></p>
+            </div>
+            <div>
+                <button type="button" id="btnJugarNuevamente">Jugar de Nuevo</button>
+                <button type="button" id="btnSalir">Salir</button>
+            </div>
+        </div>
     </section>
 
     <section id="seccionMensaje">
         <div id="mensaje-contenedor" class="contenedor">
             <h2 id="mensaje-texto">Mensaje</h2>
-            <button id="mensaje-boton">Continuar</button>
+            <button type="button" id="mensaje-boton">Continuar</button>
         </div>
     </section>
     

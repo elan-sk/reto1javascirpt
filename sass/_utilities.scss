@@ -8,10 +8,7 @@
 
 .deshabilitado:hover, .deshabilitado:disabled {
     cursor:default;
-}
-
-.habilitado {
-    cursor:pointer;
+    background: rgba(255, 255, 255, 0.4); 
 }
 
 .opcion--correcta, .opcion--correcta:hover, .opcion--correcta:disabled{
@@ -29,7 +26,7 @@
     
 }
 
-#mensaje-contenedor {
+#mensaje-contenedor, #resultado-contenedor-texto {
     background-color: beige;
     border: 2px solid black;
     gap: 2.5em;
@@ -42,4 +39,12 @@
 
 #mensaje-boton {
     padding: .5em;
+}
+
+#resultado-contenedor {
+    width: 300px;
+}
+#resultado-contenedor-texto {
+    width: 100%;
+    padding: 1em;
 }

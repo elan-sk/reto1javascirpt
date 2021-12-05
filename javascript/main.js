@@ -4,8 +4,6 @@ import {Examen} from "./Examen.js";
 import * as controlador from "./controlador.js";
 
 // VARIABLES ==================================================================
-var salir;
-let fp; //Funcion con promesa en espera.
 //ELEMENTOS++++++++++++++++++++++++++
 //ELEMENTOS SECCION LOGIN---------------------------------
 const seccionLogin = document.getElementById("seccionLogin");
@@ -13,100 +11,129 @@ const inputAlias = document.getElementById("alias");
 const btnIngresar = document.getElementById("btnIngresar");
 //ELEMENTOS SECCION PREGUNTAS ------------------------------------- 
 const seccionPreguntas = document.getElementById("seccionPreguntas");
-const encabezado = document.getElementById("encabezado");
+const h1Encabezado = document.getElementById("encabezado");
 const imagen = document.getElementById("imagen");
+const numeroPregunta = document.getElementById("numeroPregunta");
 const contenedorOpciones = document.getElementById("opciones-contenedor");
 const btnOpcion1 = document.getElementById("btnOpcion1");
 const btnOpcion2 = document.getElementById("btnOpcion2");
 const btnOpcion3 = document.getElementById("btnOpcion3");
 const btnOpcion4 = document.getElementById("btnOpcion4");
-const btnsOpcion = [btnOpcion1,btnOpcion2,btnOpcion3,btnOpcion4];
+const btnsOpciones = [btnOpcion1,btnOpcion2,btnOpcion3,btnOpcion4];
 //ELEMENTOS SECCION RESULTADOS -------------------------------------
 const seccionResultados = document.getElementById("seccionResultados");
-const seccionMensaje = document.getElementById("seccionMensaje");
-const mensajeTexto = document.getElementById("mensaje-texto");
-const mensajeBoton = document.getElementById("mensaje-boton");
+const resultadoEncabezado = document.getElementById("resultado-encabezado");
+const resultadoTexto = document.getElementById("resultado-texto");
+
+const btnJugarNuevamente = document.getElementById("btnJugarNuevamente");
+const btnSalir = document.getElementById("btnSalir");
 
 
 //Inicio de la aplicación con una función anonima, asincrona y auto ejecutable.
-(async ()=>{
+(async function app() {
 
- /*controlador.mostrarElementos([seccionLogin], true);
+    controlador.mostrarElementos([seccionLogin], true);
 
-    const ingresar = () => {
-        return new Promise(resolve => {
+    function ingresar() {
+        return new Promise (resolve =>{
             btnIngresar.addEventListener("click", function () {
                 if(inputAlias.value.trim()){
-                    let usuario = new Usuario (inputAlias.value.trim());
-                    const examen = new Examen ("Comidas del mundo", usuario, preguntasCreadas);
-                    controlador.mostrarElementos ([seccionLogin], false);
-                    controlador.mostrarElementos ([seccionPreguntas], true);
-                    resolve(examen);
+                    let nuevoUsuario = new Usuario (inputAlias.value.trim());
+                    var examen = new Examen ("Comidas del mundo", nuevoUsuario, preguntasCreadas);
+                    
+                    const {tematica, usuario, preguntas} = examen;
+
+                    async function mensaje(){
+                        const promesa = await controlador.mostrarMensaje(`¡Bienvenido ${usuario.nombre}! A continuación se le presentará un examen sobre ${tematica} con ${preguntas.length} preguntas`, "Continuar->")
+
+                        resolve(examen); 
+                    }
+
+                    mensaje();
                 }else{
                     inputAlias.value = "";
                     controlador.mostrarMensaje("¡Debe ingresar un alias!", "Aceptar");
-                };
+                };  
             });
         })
     };
-    const examenComida = await ingresar(); */
-    //para pruebas
-        let usuario = new Usuario ("Pepito Perez");
-        const examenComida = new Examen ("Comidas del mundo", usuario, preguntasCreadas);
-    //________________
-    controlador.mostrarElementos([seccionPreguntas], true);
-    controlador.desordenar(examenComida.preguntas);
-    const {preguntas} = examenComida;
-    
-    //inicio for--------------------------------------------------------------
-    let indicePregunta = 0;
-    let pregunta = preguntas[indicePregunta];
-
-    controlador.cargarPregunta(pregunta, encabezado, imagen, btnsOpcion);
-    const IdOpcionSeleccionada = await controlador.elementoSeleccionado(contenedorOpciones, "btnOpcion" , "click");
-    let {opciones} = pregunta;
-    let indiceOpcionSeleccionada = controlador.posicionOpcion(IdOpcionSeleccionada);
-    pregunta.evaluar(indiceOpcionSeleccionada);
-    let opcionSeleccionada = opciones[indiceOpcionSeleccionada];
-
-    await controlador.esperarSegundos(0.7);
-    
-    if (opcionSeleccionada.correcta){
-        controlador.reemplazarClase(document.getElementById(IdOpcionSeleccionada),"opcion--correcta","opcion--incorrecta");
-    } else {
-        for (const indice in opciones) {
-            if(opciones[indice].correcta) {
-                controlador.reemplazarClase(btnsOpcion[indice],"opcion--correcta","opcion--incorrecta"); 
-            }else {
-                controlador.reemplazarClase(btnsOpcion[indice],"opcion--incorrecta","opcion--correcta"); 
-            }
-        }
-    }
-
-    controlador.habilitarElementos(btnsOpcion, false);
-    await controlador.esperarSegundos(1);
-
+        
    
-   /*  console.log(controlador.letra(3));
- */
+    const examenComida = await ingresar();
+    const {usuario, preguntas} = examenComida;
+    controlador.mostrarElementos([seccionLogin], false);
+ 
+    
+    async function jugar() {
 
-/* 
-    const ejecutarPreguntas = () => {
-        return new Promise(resolve => {
+        controlador.mostrarElementos([seccionPreguntas], true);
+        controlador.desordenar(examenComida.preguntas);
+     
+        for (const indice in preguntas) {
+            const pregunta = preguntas[indice];
+            controlador.escribir(numeroPregunta, (parseInt(indice)+1) + "/" + preguntas.length);
+            controlador.restaurarElementos(btnsOpciones);
+            controlador.cargarPregunta(pregunta, h1Encabezado, imagen, btnsOpciones);
+            const IdOpcionSeleccionada = await controlador.elementoSeleccionado(contenedorOpciones, "btnOpcion" , "click");
 
-
-        });
-    }    */
+            let {opciones} = pregunta;
+            let indiceOpcionSeleccionada = controlador.posicionOpcion(IdOpcionSeleccionada);
+            let opcionSeleccionada = opciones[indiceOpcionSeleccionada];
+            pregunta.evaluar(indiceOpcionSeleccionada);
+        
+            await controlador.esperarSegundos(0.7);
+            
+            if (opcionSeleccionada.correcta){
+                controlador.reemplazarClase(document.getElementById(IdOpcionSeleccionada),"opcion--correcta","opcion--incorrecta");
+            } else {
+                for (const indice in opciones) {
+                    if(opciones[indice].correcta) {
+                        controlador.reemplazarClase(btnsOpciones[indice],"opcion--correcta","opcion--incorrecta"); 
+                    }else {
+                        controlador.reemplazarClase(btnsOpciones[indice],"opcion--incorrecta","opcion--correcta"); 
+                    }
+                }
+            }
+        
+            controlador.deshabilitarElementos(btnsOpciones);
+            await controlador.esperarSegundos(3);
+        }
+        controlador.mostrarElementos([seccionPreguntas],false);
+        controlador.mostrarElementos([seccionResultados],true);
+      
+        const {calificacion,preguntasCorrectas,preguntasIncorrectas,totalPreguntas} = examenComida.calificar();
     
     
+        controlador.escribir(resultadoEncabezado,
+            `Resultados del usuario ${usuario.nombre}: <br><br>`);
+        controlador.escribir(resultadoTexto, 
+            `<strong>Calificación   :</strong> ${calificacion}% <br> 
+            <strong>Preguntas Buenas:</strong> ${preguntasCorrectas} <br>
+            <strong>Preguntas Malas :</strong> ${preguntasIncorrectas} <br>
+            <strong>Total Preguntas :</strong> ${totalPreguntas}`);
+            
+        async function repetirExamen(){
+            this.removeEventListener("click", repetirExamen);
+            controlador.mostrarElementos([seccionResultados]);
+            await jugar();
+        }
+
+        function salirExamen(){
+            this.removeEventListener("click", salirExamen);
+            controlador.mostrarElementos([seccionResultados]);
+            inputAlias.value = "";
+            app(); 
+        }
+
+        btnJugarNuevamente.addEventListener("click", repetirExamen);
+        btnSalir.addEventListener("click", salirExamen);  
+
+        return true;
+    };
+
+    
+    await jugar();//Correr preguntas
+
 })();
-
-//ELEMENTOS SECCION MENSAJE -------------------------------------
-
-//  PRUEBAS=====================================================================
-
-//  finPRUEBAS=====================================================================
-
-
 
 

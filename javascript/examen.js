@@ -1,7 +1,7 @@
 export {Examen};
 
 class Examen {
-    //Esperando metodos constructor de Yeicy.
+    //Constructor de Yeicy.
     constructor(tematica,usuario,preguntas){
         this.tematica= tematica;
         this.usuario=usuario;
@@ -27,6 +27,9 @@ class Examen {
         let preguntasIncorrectas =  this.preguntas.length - preguntasCorrectas;
        
 
-        return {"Calificacion":this.calificacion, "PreguntaCorrectas":preguntasCorrectas, "PreguntaIncorrectas":preguntasIncorrectas, "TotalPreguntas":this.preguntas.length}
+        return {
+            calificacion:this.calificacion, 
+            preguntasCorrectas:preguntasCorrectas, preguntasIncorrectas:preguntasIncorrectas,
+            totalPreguntas:this.preguntas.length}
     }
 }

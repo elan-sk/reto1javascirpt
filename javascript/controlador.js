@@ -1,20 +1,17 @@
 //Muestra en un elemento HTML un texto determinado
-export function escribir (id, texto) {
-    let elemento = document.getElementById(id);
-    elemento.textContent = texto;
+export function escribir (elemento, texto) {
+    elemento.innerHTML = texto;
     return true; 
 }
 
 //carga la imagen 
-export function pintar (id, srcImagen) {
-    let elemento = document.getElementById(id);
+export function pintar (elemento, srcImagen) {
     elemento.src = srcImagen;
     return true; 
 }
 
 //obtener texto 
-export function obtenerTexto (id) {
-    let elemento = document.getElementById(id);
+export function obtenerTexto (elemento) {
     let texto = elemento.textContent;
     return texto; 
 }
@@ -29,19 +26,18 @@ export function reemplazarClase (elemento, claseNueva, claseAntigua){
     return true;
 }
 
+export function removerClase (elemento, claseRemover){
+    if (elemento.classList.contains(claseRemover) ){
+        elemento.classList.remove(claseRemover);
+    }
+    return true;
+}
 
-//Muestra u oculta uno o varios elemento de HTML
-//Nota: Como primer argumento se debe mandar un arreglo de elementos ejp: 
-    //mostrarElementos(document.getElementsByClassName("botones"), false);
-    //En el caso de que solo sea un elemento debes mandarlo como un arreglo ejp:
-    //mostrarElementos([document.getElementById("boton1")], false);
-//El segundo argumento es el que controla si se muestra o se oculta el elemento:
-    //true = Mostrar
-    //false = Ocultar 
+//Muestra u oculta uno o varios elemento de HTML 
 export function mostrarElementos(arregloElementos, boolean) {
        let elementos = arregloElementos;
        let mostrar = boolean;
-    
+       
        for (const elemento of elementos) {
            if (mostrar) {
                 reemplazarClase(elemento,"visible","oculto");
@@ -55,32 +51,26 @@ export function mostrarElementos(arregloElementos, boolean) {
 
 //Habilita o Deshabilita uno o varios elemento de HTML
 //Nota: Como primer argumento se debe mandar un arreglo de elementos ejp: 
-    //mostrarElementos(document.getElementsByClassName("botones"), false);
+    //mostrarElementos(document.getElementsByClassName("botones"));
     //En el caso de que solo sea un elemento debes mandarlo como un arreglo ejp:
-    //mostrarElementos([document.getElementById("botones")], false);
-//El segundo argumento es el que controla si se Habilita o se Deshabilita el elemento:
-    //true = Habilitar
-    //false = Deshabilitar 
-export function habilitarElementos(arregloElementos, boolean) {
- 
-    let elementos = arregloElementos;
-    let habilitar = boolean;
- 
-    for (const elemento of elementos) {
-        if (habilitar) {
-            reemplazarClase(elemento,"habilitado","deshabilitado");
-            elemento.disabled = false;
-        } else {
-            reemplazarClase(elemento,"deshabilitado","habilitado");
-            elemento.disabled = true;
-        }
+    //mostrarElementos([document.getElementById("boton")]);
+export function deshabilitarElementos(arregloElementos) {
+    
+    for (const elemento of arregloElementos) {
+        elemento.classList.add("deshabilitado");
+        elemento.disabled = true;
     }
 
     return true;
 }
 
-export function restaurarBotones(arregloBotones){
-
+export function restaurarElementos(arregloElementos){
+    for (const boton of arregloElementos) {
+        boton.disabled = false;
+        removerClase (boton, "opcion--correcta");
+        removerClase (boton, "opcion--incorrecta");
+        removerClase (boton, "deshabilitado");
+    }
 }
 
 
@@ -93,9 +83,10 @@ export function elementoSeleccionado (elementoContenedor, claseElementos, evento
     return new Promise (resolve =>{
         const contenedorOpciones = elementoContenedor;
              
-        contenedorOpciones.addEventListener(evento, evento => {
-            if  (evento.target.classList.contains(claseElementos)){
-             resolve (evento.target.id);
+        contenedorOpciones.addEventListener(evento, e => {
+            if  (e.target.classList.contains(claseElementos)){
+                resolve (e.target.id);
+                e.stopPropagation();
             }
         })
     })
@@ -107,16 +98,17 @@ export function elementoSeleccionado (elementoContenedor, claseElementos, evento
 export function mostrarMensaje (textoMensaje, textoBoton) {
     return new Promise (resolve => {
         let idContenedorMensaje = "seccionMensaje";
-        let idTexto = "mensaje-texto";
-        let idBoton = "mensaje-boton"; 
+        let elementoTexto = document.getElementById("mensaje-texto");
+        let elementoBoton = document.getElementById("mensaje-boton"); 
     
         mostrarElementos ([document.getElementById(idContenedorMensaje)], true);
     
-        escribir(idTexto, textoMensaje);
-        escribir(idBoton, textoBoton);
+        escribir(elementoTexto, textoMensaje);
+        escribir(elementoBoton, textoBoton);
 
-        document.getElementById(idBoton).addEventListener("click", function () {
+        elementoBoton.addEventListener("click", function () {
             mostrarElementos ([document.getElementById(idContenedorMensaje)], false);
+            resolve(true);
         });
     })
 }
@@ -124,14 +116,15 @@ export function mostrarMensaje (textoMensaje, textoBoton) {
 
 //Función de carga las pregunta en la página.
 export function cargarPregunta(pregunta, tituloEncabezado, ImgPregunta, arregloBotones) {
+
     const{encabezado, opciones, imagen} = pregunta;
 
-    escribir(tituloEncabezado.id, encabezado);
-    pintar (ImgPregunta.id, imagen);
+    escribir(tituloEncabezado, encabezado);
+    pintar (ImgPregunta, imagen);
     desordenar(opciones);
     
     for (const indice in arregloBotones) {
-       escribir(arregloBotones[indice].id, letra(indice) + opciones[indice].texto);
+       escribir(arregloBotones[indice], letra(indice) + opciones[indice].texto);
     }
 
     return true;

@@ -3,7 +3,7 @@ import {Pregunta} from "./Pregunta.js";
 export{preguntasCreadas};
 
 //Creación de Preguntas =====================
-const Pregunta1 = new Pregunta("¿Cuál de esto platos en una comida típica del Chocó?",[
+const Pregunta1 = new Pregunta("¿Cuál de esto platos es una comida típica del Chocó?",[
     {texto:"Bandeja Paisa",correcta:false},
     {texto:"Arroz con Longaniza",correcta:true},
     {texto:"Ajiaco",correcta:false},
@@ -31,7 +31,7 @@ const Pregunta4 = new Pregunta("¿Cuál de los siguientes platos es una comida t
     {texto:"Emparedado de Pavo",correcta:false}],
     "img/imagen_4.jpeg");
 
-const Pregunta5 = new Pregunta("Qué ingrediente NO hace parte de un sancocho",[
+const Pregunta5 = new Pregunta("¿Qué ingrediente NO hace parte de un sancocho?",[
     {texto:"Papa",correcta:false},
     {texto:"Tomate",correcta:false},
     {texto:"Lechuga",correcta:true},
