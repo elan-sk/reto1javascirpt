@@ -16,7 +16,7 @@ export function obtenerTexto (elemento) {
     return texto; 
 }
 
-//Reemplaza una clase de un elemento HTML por otra. ejp: "oculto" por "visible"
+//Reemplaza una clase de un elemento HTML por otra. ejp: 'oculto' por 'visible'
 //Nota: Se debe enviar como argumento el nombre de las clases sin el punto (.)
 export function reemplazarClase (elemento, claseNueva, claseAntigua){
     if (elemento.classList.contains(claseAntigua) ){
@@ -40,9 +40,9 @@ export function mostrarElementos(arregloElementos, boolean) {
        
        for (const elemento of elementos) {
            if (mostrar) {
-                reemplazarClase(elemento,"visible","oculto");
+                reemplazarClase(elemento,'visible','oculto');
            }else {
-               reemplazarClase(elemento, "oculto", "visible");
+               reemplazarClase(elemento, 'oculto', 'visible');
            }
        }
 
@@ -51,13 +51,13 @@ export function mostrarElementos(arregloElementos, boolean) {
 
 //Habilita o Deshabilita uno o varios elemento de HTML
 //Nota: Como primer argumento se debe mandar un arreglo de elementos ejp: 
-    //mostrarElementos(document.getElementsByClassName("botones"));
+    //mostrarElementos(document.getElementsByClassName('botones'));
     //En el caso de que solo sea un elemento debes mandarlo como un arreglo ejp:
-    //mostrarElementos([document.getElementById("boton")]);
+    //mostrarElementos([document.getElementById('boton')]);
 export function deshabilitarElementos(arregloElementos) {
     
     for (const elemento of arregloElementos) {
-        elemento.classList.add("deshabilitado");
+        elemento.classList.add('deshabilitado');
         elemento.disabled = true;
     }
 
@@ -67,9 +67,9 @@ export function deshabilitarElementos(arregloElementos) {
 export function restaurarElementos(arregloElementos){
     for (const boton of arregloElementos) {
         boton.disabled = false;
-        removerClase (boton, "opcion--correcta");
-        removerClase (boton, "opcion--incorrecta");
-        removerClase (boton, "deshabilitado");
+        removerClase (boton, 'opcion--correcta');
+        removerClase (boton, 'opcion--incorrecta');
+        removerClase (boton, 'deshabilitado');
     }
     return true;
 }
@@ -77,7 +77,7 @@ export function restaurarElementos(arregloElementos){
 
 //Funcion no exportada que se usa como callBack en la funcion opcionSeleccionada()
 //Y se encarga de escuchar un tipo de elemento dentro de un contenedor y ejemplo:
-    // Escuchar los elementos de clase "boton" dentro de un contenedor "boton-contenedor"
+    // Escuchar los elementos de clase 'boton' dentro de un contenedor 'boton-contenedor'
 //Devuelve el Id del elemento seleccionado dentro de un contenedor
 //Nota: Se usas una promesa debido a que escucharElementos() es una funcion de naturaleza asincrona
 export function elementoSeleccionado (elementoContenedor, claseElementos, evento) {
@@ -98,16 +98,16 @@ export function elementoSeleccionado (elementoContenedor, claseElementos, evento
 //mostrar mensaje de al usuario.
 export function mostrarMensaje (textoMensaje, textoBoton) {
     return new Promise (resolve => {
-        let idContenedorMensaje = "seccionMensaje";
-        let elementoTexto = document.getElementById("mensaje-texto");
-        let elementoBoton = document.getElementById("mensaje-boton"); 
+        let idContenedorMensaje = 'seccionMensaje';
+        let elementoTexto = document.getElementById('mensaje-texto');
+        let elementoBoton = document.getElementById('mensaje-boton'); 
     
         mostrarElementos ([document.getElementById(idContenedorMensaje)], true);
     
         escribir(elementoTexto, textoMensaje);
         escribir(elementoBoton, textoBoton);
 
-        elementoBoton.addEventListener("click", function () {
+        elementoBoton.addEventListener('click', function () {
             mostrarElementos ([document.getElementById(idContenedorMensaje)], false);
             resolve(true);
         });
@@ -117,18 +117,19 @@ export function mostrarMensaje (textoMensaje, textoBoton) {
 
 //Función de carga las pregunta en la página.
 export function cargarPregunta(pregunta, tituloEncabezado, ImgPregunta, arregloBotones) {
-
-    const{encabezado, opciones, imagen} = pregunta;
-
-    escribir(tituloEncabezado, encabezado);
-    pintar (ImgPregunta, imagen);
-    desordenar(opciones);
+    return new Promise (resolve=>{
+        const{encabezado, opciones, imagen} = pregunta;
     
-    for (const indice in arregloBotones) {
-       escribir(arregloBotones[indice], letra(indice) + opciones[indice].texto);
-    }
-
-    return true;
+        escribir(tituloEncabezado, encabezado);
+        pintar (ImgPregunta, imagen);
+        desordenar(opciones);
+        
+        for (const indice in arregloBotones) {
+           escribir(arregloBotones[indice], letra(indice) + opciones[indice].texto);
+        }
+    
+        resolve(true);
+    })
 }
 
 
@@ -159,22 +160,22 @@ function letra (indice) {
     
     switch (parseInt(indice)) {
         case 0:
-            letra = "A";
+            letra = 'A';
             break;
         case 1:
-            letra = "B";
+            letra = 'B';
             break;
         case 2:
-            letra = "C";
+            letra = 'C';
             break;
         case 3:
-            letra = "D";
+            letra = 'D';
             break;
         default:
-            return letra= "no valido";
+            return letra= 'no valido';
       }
 
-    return letra +=". " ;
+    return letra +='. ' ;
 }
 
 
@@ -183,20 +184,20 @@ export function posicionOpcion (IdOpcion) {
     let posicion;
     
     switch (IdOpcion) {
-        case "btnOpcion1":
+        case 'btnOpcion1':
             posicion = 0;
             break;
-        case "btnOpcion2":
+        case 'btnOpcion2':
             posicion = 1;
             break;
-        case "btnOpcion3":
+        case 'btnOpcion3':
             posicion = 2;
             break;
-        case "btnOpcion4":
+        case 'btnOpcion4':
             posicion = 3;
             break;
         default:
-            return posicion= "no valido";
+            return posicion= 'no valido';
       }
 
     return posicion;
@@ -205,6 +206,23 @@ export function posicionOpcion (IdOpcion) {
 //Detiene el flujo del programa por un determinado numero de segundos.
 export function esperarSegundos (tiempoSegundos){
     return new Promise(resolve => {
-        setInterval(()=>{resolve(true)},tiempoSegundos*1000);
+        let intervalo = setInterval(()=>{
+            clearInterval(intervalo);
+            resolve(true)
+        },tiempoSegundos*1000);
+    })
+}
+
+export function animation(elemento, animacion, tiempoSegundos){
+    let texto = animacion + ' ' + tiempoSegundos + 's  ';
+    elemento.style.animation = texto;
+
+    return new Promise(resolve =>{
+        let intervalo = setInterval(()=>{
+            elemento.style.animationPlayState = 'paused';
+            elemento.style.animation= 'none';
+            clearInterval(intervalo);
+            resolve(true);
+        },tiempoSegundos*1000);
     })
 }

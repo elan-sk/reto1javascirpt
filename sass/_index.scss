@@ -1,70 +1,218 @@
 #seccionLogin {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $colorLogin;
+  animation-duration: 1s;
+  animation-name: entrar-arriba;
 
-.opciones{
-    width: 100%;
+  .contenedorAlias {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .contenedor {
+    flex-direction: column;
+    gap: 3em;
+  }
+
+
+  #ingrNombre {
+    color: $colorletra;
+    font-family: $letrageneral;
+    font-size: 22px;
+    width: 100%;
+  }
+
+  
+  #alias {
+    padding: 15px;
+    border-radius: 10px;
+  }
+}
+.tituloJuego {
+  font-family: $letraencabezado;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 80px;
+  color: $colorletra;
+  line-height: 1;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+}
+
+.botones{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  width: 150px;
+  height: auto;
+  background: $colorBotones;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.opciones {
+  width: 30%;
+  display: flex;
+  justify-content: center;
 }
 
 #opciones-contenedor {
-    flex: 0 1 700px;
-    display: flex;
-    flex-wrap: wrap;
-    gap:1em;
-    justify-content: space-around;
+  flex: 0 1 700px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: space-around;
 }
 
 .btnOpcion {
-    flex: 1 1 340px;
-    height: 60px;
+  min-width: max-content;
+  flex: 1 1 400px;
+  height: 60px;
+  background-color: $colorpciones;
+  font-family: $letrageneral;
+  position: static;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 43px;
+  color: $colorletra;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btnOpcion:hover {
-    cursor: pointer;
-    background: yellow;
+  cursor: pointer;
+  background: $colorBotones;
+  color:black;
 }
-
-#encabezado {
-    width: 95vw;
-}
-
-
 
 .contenedor-imagen {
-    height: 60vh;
-    width: max-content;
-    display: flex;    
-    justify-content: center;
-    position: relative;
+  height: 60vh;
+  max-width: max-content;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
 @media (max-width: 700px) {
-    .contenedor-imagen {
-        height: 45vh;
-    } 
-
-    #opciones-contenedor {
-        gap:.4em;
+  body {
+    overflow-y:auto;
+  }
+  
+  #contenedor-pregunta {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: max-content;
+  }
+  #seccionPreguntas{
+    .opciones {
+        width: 100%;
     }
+    #contenedor-pregunta{
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
+  }
+  .contenedor-imagen {
+    width: 95vw;
+    height: auto;
+  }
+
+  #opciones-contenedor {
+    width: 100%;
+    gap: 0.4em;
+    .btnOpcion{
+      width: 100%;
+    }
+  }
 }
 
-#numeroPregunta{
-    background: beige;
-    padding: 5px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-weight: 600;
-    font-size: 2em;
+
+
+#numeroPregunta {
+  background: beige;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: 600;
+  font-size: 2em;
 }
 
 #imagen {
-    height: 100%;
+  height: 100%;
 }
 
+#encabezado {
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+  font-size:25px;
+  padding: $altoEncabezadoPregunta;
+  width: 100%;
+  background: $colorencabezado;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  font-family: $letrageneral;
+}
+
+#mensaje-texto {
+  font-family: $letrageneral;
+  font-size: 25px;
+}
+
+#mensaje-boton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 150px;
+  height: auto;
+  position: relative;
+  font-size: 18px;
+  background: $colorBotones;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+#seccionPreguntas {
+  background: $colorSeccionPregunta;
+}
+#contenedor-pregunta{
+  flex-wrap: nowrap;
+}
+
+#seccionResultados{
+  background-color: $colorLogin;
+  animation-duration: 1s;
+  animation-name: entrar-abajo; 
+}
+
+.resultadoBotones{
+  display: flex;
+  gap:0.5em;
+}
+
+#resultado-contenedor{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#resultado-contenedor-texto{
+font-family:$letrageneral;
+}
+
+#resultado-contenedor-texto{
+  background-color: beige;
+  border: 2px solid black;
+}

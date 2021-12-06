@@ -8,7 +8,8 @@
 
 .deshabilitado:hover, .deshabilitado:disabled {
     cursor:default;
-    background: rgba(255, 255, 255, 0.4); 
+    background: rgba(168, 163, 163, 0.4); 
+    color:rgb(88, 88, 88);
 }
 
 .opcion--correcta, .opcion--correcta:hover, .opcion--correcta:disabled{
@@ -17,16 +18,17 @@
 }
 
 .opcion--incorrecta, .opcion--incorrecta:hover, .opcion--incorrecta:disabled {
-    background-color: red;
+    background-color:$colorBotonIncorrecto;
     color: white;
 }
 
 #seccionMensaje {
     background: rgba(0, 0, 0, 0.3);
-    
+    animation-duration: .3s;
+    animation-name: aparecer; 
 }
 
-#mensaje-contenedor, #resultado-contenedor-texto {
+#mensaje-contenedor {
     background-color: beige;
     border: 2px solid black;
     gap: 2.5em;
@@ -44,6 +46,7 @@
 #resultado-contenedor {
     width: 300px;
 }
+
 #resultado-contenedor-texto {
     width: 100%;
     padding: 1em;

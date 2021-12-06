@@ -1,63 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Examen de CSS</title>
-    <link rel="stylesheet" href="style.min.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300&family=Shadows+Into+Light+Two&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&family=Shadows+Into+Light+Two&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.min.css" />
+  </head>
+  <body>
     <section id="seccionLogin">
-        <div class="contenedor">
-            <input type="text" aria-label="Alias" id="alias">
-            <button type="button" id="btnIngresar">Ingresar</button>
+      <div class="contenedor">
+        <h1 class="tituloJuego">Little Games</h1>
+
+        <div class="contenedorAlias">
+          <h2 id="ingrNombre">Ingrese su nombre (alias)</h2>
+          <input type="text" aria-label="Alias" id="alias" />
         </div>
+
+        <button type="button" id="btnIngresar" class="botones">Empezar</button>
+      </div>
     </section>
 
     <section id="seccionPreguntas">
-        <div class="contenedor">
-            <h1 id="encabezado">Encabezado</h1>
-            <picture class="contenedor-imagen">
-                <div id="numeroPregunta"></div>
-                <img id="imagen">
-            </picture>
-            <div class="opciones">
-                <div id="opciones-contenedor">
-                    <button type="button" class="btnOpcion btnOpcion1" id="btnOpcion1">opcion1</button>
-                    
-                    <button type="button" class="btnOpcion btnOpcion2" id="btnOpcion2">opcion2</button>
-                    
-                    <button type="button" class="btnOpcion btnOpcion3" id="btnOpcion3">opcion3</button>
-                    
-                    <button type="button" class="btnOpcion btnOpcion4" id="btnOpcion4">opcion4</button>
-                </div>
-            </div>
-    
-            <script src="javascript/main.js" type="module"></script>
-        </div>
-    </section>
+    <h1><span id="encabezado">Encabezado</span></h1>
+      <div class="contenedor" id="contenedor-pregunta">
 
+        <picture class="contenedor-imagen">
+          <div id="numeroPregunta"></div>
+          <img id="imagen" />
+        </picture>
+
+        <div class="opciones">
+          <div id="opciones-contenedor">
+            <button type="button" class="btnOpcion btnOpcion1" id="btnOpcion1">
+              opcion1
+            </button>
+
+            <button type="button" class="btnOpcion btnOpcion2" id="btnOpcion2">
+              opcion2
+            </button>
+
+            <button type="button" class="btnOpcion btnOpcion3" id="btnOpcion3">
+              opcion3
+            </button>
+
+            <button type="button" class="btnOpcion btnOpcion4" id="btnOpcion4">
+              opcion4
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    
     <section id="seccionResultados">
-        <div class="contenedor" id="resultado-contenedor">
-            <div id="resultado-contenedor-texto" >
-                <h2 id="resultado-encabezado">resultados</h2>
-                <p id="resultado-texto"></p>
-            </div>
-            <div>
-                <button type="button" id="btnJugarNuevamente">Jugar de Nuevo</button>
-                <button type="button" id="btnSalir">Salir</button>
-            </div>
+      <div class="contenedor">
+        <h1 class="tituloJuego">Little Games</h1>
+        <div id="resultado-contenedor">
+          <div id="resultado-contenedor-texto">
+            <h2 id="resultado-encabezado">resultados</h2>
+            <p id="resultado-texto"></p>
+          </div>
+          <div class="resultadoBotones">
+            <button type="button" id="btnJugarNuevamente" class="botones">Jugar de Nuevo</button>
+            <button type="button" id="btnSalir" class="botones">Salir</button>
+          </div>
         </div>
-    </section>
-
-    <section id="seccionMensaje">
-        <div id="mensaje-contenedor" class="contenedor">
-            <h2 id="mensaje-texto">Mensaje</h2>
-            <button type="button" id="mensaje-boton">Continuar</button>
-        </div>
+      </div>
     </section>
     
+    <section id="seccionMensaje">
+      <div id="mensaje-contenedor" class="contenedor">
+        <h2 id="mensaje-texto">Mensaje</h2>
+        <button type="button" id="mensaje-boton">Continuar</button>
+      </div>
+    </section>
 
-</body>
+    <script src="javascript/main.js" type="module"></script>
+  </body>
 </html>
