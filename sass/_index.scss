@@ -106,6 +106,10 @@
   body {
     overflow-y:auto;
   }
+
+  .tituloJuego{
+    font-size: 2em;
+  }
   
   #contenedor-pregunta {
     display: flex;
@@ -115,14 +119,16 @@
   #seccionPreguntas{
     .opciones {
         width: 100%;
+        gap:5px;
     }
     #contenedor-pregunta{
       flex-wrap: wrap;
       margin-top: 60px;
+      gap: 1em;
     }
   }
   .contenedor-imagen {
-    width: 95vw;
+    width: 70vw;
     height: auto;
   }
 
@@ -131,6 +137,12 @@
     gap: 0.4em;
     .btnOpcion{
       width: 100%;
+    }
+  }
+
+  #seccionLogin {
+    .contenedor {
+      gap: 1.5em;
     }
   }
 }
@@ -199,6 +211,7 @@
 
 .resultadoBotones{
   display: flex;
+  justify-content: center;
   gap:0.5em;
 }
 
