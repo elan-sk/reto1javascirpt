@@ -102,52 +102,6 @@
   position: relative;
 }
 
-@media (max-width: 700px) {
-  body {
-    overflow-y:auto;
-  }
-
-  .tituloJuego{
-    font-size: 2em;
-  }
-  
-  #contenedor-pregunta {
-    display: flex;
-    flex-wrap: wrap;
-    min-height: max-content;
-  }
-  #seccionPreguntas{
-    .opciones {
-        width: 100%;
-        gap:5px;
-    }
-    #contenedor-pregunta{
-      flex-wrap: wrap;
-      margin-top: 60px;
-      gap: 1em;
-    }
-  }
-  .contenedor-imagen {
-    width: 70vw;
-    height: auto;
-  }
-
-  #opciones-contenedor {
-    width: 100%;
-    gap: 0.4em;
-    .btnOpcion{
-      width: 100%;
-    }
-  }
-
-  #seccionLogin {
-    .contenedor {
-      gap: 1.5em;
-    }
-  }
-}
-
-
 
 #numeroPregunta {
   background: beige;
@@ -228,4 +182,53 @@ font-family:$letrageneral;
 #resultado-contenedor-texto{
   background-color: beige;
   border: 2px solid black;
+}
+
+//RESPONSIVE============================
+@media (max-width: 700px) {
+  body {
+    overflow-y:auto;
+  }
+  .tituloJuego{
+    font-size: 3em;
+  }
+  //........................
+  #seccionLogin {
+    .contenedor {
+      width: 100vw;
+      gap: 1.5em;
+    }
+  
+
+    #ingrNombre {
+      font-size: 1em;
+    }
+  }
+  //........................
+  #seccionPreguntas{
+    .opciones {
+        width: 100%;
+        gap:5px;
+    }
+    #contenedor-pregunta{
+      flex-wrap: wrap;
+      margin-top: 20px;
+      gap: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: max-content;
+    }
+    .contenedor-imagen {
+      width: 70vw;
+      height: auto;
+    }
+    #opciones-contenedor {
+      width: 100%;
+      gap: 0.4em;
+      .btnOpcion{
+        width: 100%;
+      }
+    }
+  }
+
 }
