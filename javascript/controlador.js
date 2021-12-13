@@ -24,23 +24,31 @@ export function reemplazarClase (elemento, claseNueva, claseAntigua){
     }
     elemento.classList.add(claseNueva);
     return true;
+
+
+  /*   elemento.classList.replace(claseAntigua,claseNueva);
+    return true; */
 }
 
 export function removerClase (elemento, claseRemover){
-    if (elemento.classList.contains(claseRemover) ){
-        elemento.classList.remove(claseRemover);
-    }
+    
+    elemento.classList.remove(claseRemover);
+    
     return true;
 }
 
 //Muestra u oculta uno o varios elemento de HTML 
-export function mostrarElementos(arregloElementos, boolean) {
+export function mostrarElementos(arregloElementos, boolean, esFlex = false) {
        let elementos = arregloElementos;
        let mostrar = boolean;
        
        for (const elemento of elementos) {
            if (mostrar) {
-                reemplazarClase(elemento,'visible','oculto');
+               if (esFlex){
+                reemplazarClase(elemento,'visible-flex','oculto');
+               }else {
+                   reemplazarClase(elemento,'visible','oculto');
+               }
            }else {
                reemplazarClase(elemento, 'oculto', 'visible');
            }
@@ -213,16 +221,27 @@ export function esperarSegundos (tiempoSegundos){
     })
 }
 
-export function animation(elemento, animacion, tiempoSegundos){
+/* export function animation(elemento, animacion, tiempoSegundos){
     let texto = animacion + ' ' + tiempoSegundos + 's  ';
     elemento.style.animation = texto;
 
     return new Promise(resolve =>{
         let intervalo = setInterval(()=>{
-            elemento.style.animationPlayState = 'paused';
+            elemento.style.animationPlayState = 'paused'; running
             elemento.style.animation= 'none';
             clearInterval(intervalo);
             resolve(true);
         },tiempoSegundos*1000);
     })
-}
+} */
+/* export function animacion(elemento, animacion, tiempoSegundos){
+    reemplazarClase(elemento,animacion,animacion);
+   
+    return new Promise(resolve =>{
+        let intervalo = setInterval(()=>{
+            elemento.style.animation= 'none';
+            clearInterval(intervalo);
+            resolve(true);
+        },tiempoSegundos*1000);
+    })
+} */

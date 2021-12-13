@@ -152,9 +152,20 @@
 
 #seccionPreguntas {
   background: $colorSeccionPregunta;
+  animation-duration: 1s;
+  animation-name: entrar-derecha;
 }
+
+
+.aparecer {
+  animation-duration: 1s;
+  animation-name: aparecer;
+}
+
 #contenedor-pregunta{
   flex-wrap: nowrap;
+  animation-duration: 1s;
+  animation-name: aparecer;
 }
 
 #seccionResultados{

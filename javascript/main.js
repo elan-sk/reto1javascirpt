@@ -11,7 +11,6 @@ const inputAlias = document.getElementById('alias');
 const btnIngresar = document.getElementById('btnIngresar');
 //ELEMENTOS SECCION PREGUNTAS ------------------------------------- 
 const seccionPreguntas = document.getElementById('seccionPreguntas');
-const contenedorPreguntas = document.getElementById('contenedor-pregunta');
 const encabezadoPregunta = document.getElementById('encabezado');
 const imagen = document.getElementById('imagen');
 const numeroPregunta = document.getElementById('numeroPregunta');
@@ -78,14 +77,6 @@ const btnSalir = document.getElementById('btnSalir');
             controlador.restaurarElementos(btnsOpciones);
             
             await controlador.cargarPregunta(pregunta, encabezadoPregunta, imagen, btnsOpciones);
-
-            if (parseInt(indice) === 0){
-                await controlador.animation(seccionPreguntas, 'entrar-derecha', 1); 
-            
-            }else{
-                controlador.animation(encabezadoPregunta, 'aparecer', 1.2);
-                await controlador.animation(contenedorPreguntas, 'aparecer', 1.2);
-            }
             
             const IdOpcionSeleccionada = await controlador.elementoSeleccionado(contenedorOpciones, 'btnOpcion' , 'click');
             console.log(IdOpcionSeleccionada);
@@ -110,10 +101,7 @@ const btnSalir = document.getElementById('btnSalir');
             }
             
             controlador.deshabilitarElementos(btnsOpciones);
-            await controlador.esperarSegundos(2); 
-            controlador.animation(encabezadoPregunta, 'desaparecer', 0.2);
-            controlador.animation(contenedorPreguntas, 'desaparecer', 0.2);
-          
+            await controlador.esperarSegundos(2);
         }
 
        

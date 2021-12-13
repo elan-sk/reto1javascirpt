@@ -6,6 +6,11 @@
     display: initial;
 }
 
+.visible-flex {
+    display: flex;
+}
+
+
 .deshabilitado:hover, .deshabilitado:disabled {
     cursor:default;
     background: rgba(168, 163, 163, 0.4); 
