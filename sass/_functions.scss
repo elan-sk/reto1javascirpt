@@ -1,0 +1,23 @@
+@function rem($size) {
+  @return $size / 16px * 1rem;
+}
+
+@function space($unit) {
+  $space: 30px;
+  @return ($unit * $space) / 16px * 1rem;
+}
+
+@mixin imageBg($path, $height, $width) {
+  display: block;
+  background-image: url($path);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  font-size: 0;
+  height: $height;
+  text-indent: -999999px;
+  overflow: hidden;
+  width: $width;
+}
+
+

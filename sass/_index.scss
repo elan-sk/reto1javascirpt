@@ -27,39 +27,36 @@
     width: 100%;
   }
 
-  
+
   #alias {
     padding: 15px;
     border-radius: 10px;
   }
 }
 .tituloJuego {
-  font-family: $letraencabezado;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 80px;
-  color: $colorletra;
-  line-height: 1;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 100%;
+  @include imageBg('../../img/logo-colfondos.png', rem(100px), 100%);
 }
 
 .botones{
+  font-weight: bold;
+  align-items: center;
+  background: $colorBotones;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color:white;
   display: flex;
   flex-direction: row;
+  height: auto;
   justify-content: center;
-  align-items: center;
+  mix-blend-mode: normal;
   padding: 16px;
   width: 150px;
-  height: auto;
-  background: $colorBotones;
-  mix-blend-mode: normal;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 
 .opciones {
-  width: 30%;
+  width: 40%;
   display: flex;
   justify-content: center;
 }
@@ -73,16 +70,17 @@
 }
 
 .btnOpcion {
-  min-width: max-content;
+  min-width: 100%;
   flex: 1 1 400px;
-  height: 60px;
-  background-color: $colorpciones;
+  height: min-content;
+  background-color: $colorBopciones;
   font-family: $letrageneral;
   position: static;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  line-height: 43px;
+  line-height: 20px;
+  padding: space(.5) space(.25);
   color: $colorletra;
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -90,8 +88,8 @@
 
 .btnOpcion:hover {
   cursor: pointer;
-  background: $colorBotones;
-  color:black;
+  background: $colorBopcionesHover;
+  color: white;
 }
 
 .contenedor-imagen {
@@ -136,6 +134,7 @@
 
 #mensaje-boton {
   display: flex;
+  color: white;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -171,7 +170,7 @@
 #seccionResultados{
   background-color: $colorLogin;
   animation-duration: 1s;
-  animation-name: entrar-abajo; 
+  animation-name: entrar-abajo;
 }
 
 .resultadoBotones{
@@ -209,7 +208,7 @@ font-family:$letrageneral;
       width: 100vw;
       gap: 1.5em;
     }
-  
+
 
     #ingrNombre {
       font-size: 1em;
