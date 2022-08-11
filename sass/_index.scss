@@ -216,10 +216,20 @@ font-family:$letrageneral;
   }
   //........................
   #seccionPreguntas{
+
+    #encabezado {
+      font-size: 20px;
+    }
+
     .opciones {
         width: 100%;
         gap:5px;
     }
+
+    .btnOpcion {
+      font-size: 12px;
+    }
+
     #contenedor-pregunta{
       flex-wrap: wrap;
       margin-top: 20px;
@@ -227,10 +237,12 @@ font-family:$letrageneral;
       display: flex;
       flex-wrap: wrap;
       min-height: max-content;
+      min-width: 70%;
+      top: 400px;
     }
     .contenedor-imagen {
       width: 70vw;
-      height: auto;
+      height: 250px;
     }
     #opciones-contenedor {
       width: 100%;
@@ -241,4 +253,9 @@ font-family:$letrageneral;
     }
   }
 
+  #seccionResultados {
+    .tituloJuego {
+      height: 125px;
+    }
+  }
 }

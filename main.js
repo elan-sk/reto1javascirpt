@@ -80,7 +80,7 @@ const Pregunta3 = new Pregunta('¿Cuáles son las causas por las que se pueden r
     {texto:'En caso de quedar cesante (finalización del vínculo laboral).',correcta:false},
     {texto:'Para comprar, mejorar, liberar de hipoteca tu vivienda.',correcta:false},
     {texto:'Asimismo, el pago de matrículas en instituciones y programas técnicos.',correcta:false},
-    {texto:'Todas las anteriores',correcta:true}],
+    {texto:'Todas las opciones',correcta:true}],
     'img/imagen_3.jpg',0);
 
 const Pregunta4 = new Pregunta('¿Se puede trasladar solamente las Cesantías a otro fondo y dejar la pensión quieta?',[
