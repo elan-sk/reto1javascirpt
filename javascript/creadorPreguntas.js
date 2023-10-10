@@ -3,40 +3,75 @@ import {Pregunta} from './Pregunta.js';
 export{preguntasCreadas};
 
 //Creación de Preguntas =====================
-const Pregunta1 = new Pregunta('¿Cuál de los siguientes platos es una comida típica del Chocó?',[
-    {texto:'Bandeja Paisa',correcta:false},
-    {texto:'Arroz con Longaniza',correcta:true},
-    {texto:'Ajiaco',correcta:false},
-    {texto:'Pizza',correcta:false}],
-    'img/imagen_1.jpeg');
+const Pregunta1 = new Pregunta('¿Cuanto es:?',[
+    {texto:'3',correcta:true},
+    {texto:'6',correcta:false},
+    {texto:'1',correcta:false},
+    {texto:'4',correcta:false}],
+    'img/Picture1.png');
 
-const Pregunta2 = new Pregunta('¿Cuál es el origen del siguiente platillo?',[
-    {texto:'Colombia',correcta:false},
-    {texto:'México',correcta:false},
-    {texto:'Italia',correcta:true},
-    {texto:'Francia',correcta:false}],
-    'img/imagen_2.jpeg');
+const Pregunta2 = new Pregunta('¿Cuanto es:?',[
+    {texto:'6',correcta:true},
+    {texto:'9',correcta:false},
+    {texto:'12',correcta:false},
+    {texto:'24',correcta:false}],
+    'img/Picture2.png');
 
-const Pregunta3 = new Pregunta('¿Cuál es el origen del siguiente platillo?',[
-    {texto:'España',correcta:false},
-    {texto:'Chile',correcta:false},
-    {texto:'USA',correcta:false},
-    {texto:'México',correcta:true}],
-    'img/imagen_3.jpeg');
+const Pregunta3 = new Pregunta('¿Cuanto es:?',[
+    {texto:'9',correcta:true},
+    {texto:'12',correcta:false},
+    {texto:'21',correcta:false},
+    {texto:'18',correcta:false}],
+    'img/Picture3.png');
 
-const Pregunta4 = new Pregunta('¿Cuál de los siguientes platos es una comida tipica de España?',[
-    {texto:'Paella',correcta:true},
-    {texto:'Croissant',correcta:false},
-    {texto:'Pollo Frito',correcta:false},
-    {texto:'Emparedado de Pavo',correcta:false}],
-    'img/imagen_4.jpeg');
+const Pregunta4 = new Pregunta('¿Cuanto es:?',[
+    {texto:'12',correcta:true},
+    {texto:'27',correcta:false},
+    {texto:'9',correcta:false},
+    {texto:'6',correcta:false}],
+    'img/Picture4.png');
 
-const Pregunta5 = new Pregunta('¿Cuál de los siguientes ingrediente NO hace parte de un sancocho?',[
-    {texto:'Papa',correcta:false},
-    {texto:'Tomate',correcta:false},
-    {texto:'Lechuga',correcta:true},
-    {texto:'Pollo',correcta:false}],
-    'img/imagen_5.jpeg');
+const Pregunta5 = new Pregunta('¿Cuanto es:?',[
+    {texto:'15',correcta:true},
+    {texto:'18',correcta:false},
+    {texto:'21',correcta:false},
+    {texto:'30',correcta:false}],
+    'img/Picture5.png');
+
+const Pregunta6 = new Pregunta('¿Cuanto es:?',[
+    {texto:'18',correcta:true},
+    {texto:'21',correcta:false},
+    {texto:'6',correcta:false},
+    {texto:'3',correcta:false}],
+    'img/Picture6.png');
+
+const Pregunta7 = new Pregunta('¿Cuanto es:?',[
+    {texto:'21',correcta:true},
+    {texto:'24',correcta:false},
+    {texto:'27',correcta:false},
+    {texto:'30',correcta:false}],
+    'img/Picture7.png');
+
+const Pregunta8 = new Pregunta('¿Cuanto es:?',[
+    {texto:'24',correcta:true},
+    {texto:'23',correcta:false},
+    {texto:'20',correcta:false},
+    {texto:'18',correcta:false}],
+    'img/Picture8.png');
+
+const Pregunta9 = new Pregunta('¿Cuanto es:?',[
+    {texto:'27',correcta:true},
+    {texto:'30',correcta:false},
+    {texto:'15',correcta:false},
+    {texto:'9',correcta:false}],
+    'img/Picture9.png');
+
+const Pregunta10 = new Pregunta('¿Cuanto es:?',[
+    {texto:'30',correcta:true},
+    {texto:'12',correcta:false},
+    {texto:'15',correcta:false},
+    {texto:'9',correcta:false}],
+    'img/Picture10.png');
 
 //arreglo de preguntas
-var preguntasCreadas = [Pregunta1,Pregunta2,Pregunta3,Pregunta4,Pregunta5];
+var preguntasCreadas = [Pregunta1,Pregunta2,Pregunta3,Pregunta4,Pregunta5,Pregunta6,Pregunta7,Pregunta8,Pregunta9,Pregunta10];
