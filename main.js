@@ -63,70 +63,71 @@ class Pregunta {
 };
 
 //Creación de Preguntas =====================
-const Pregunta1 = new Pregunta('¿Cuanto es:?',[
+const Pregunta1 = new Pregunta('¿Cuanto es: 3 x 1?',[
     {texto:'3',correcta:true},
     {texto:'6',correcta:false},
     {texto:'1',correcta:false},
     {texto:'4',correcta:false}],
     'img/Picture1.png');
 
-const Pregunta2 = new Pregunta('¿Cuanto es:?',[
+const Pregunta2 = new Pregunta('¿Cuanto es: 3 x 2?',[
     {texto:'6',correcta:true},
     {texto:'9',correcta:false},
     {texto:'12',correcta:false},
     {texto:'24',correcta:false}],
     'img/Picture2.png');
 
-const Pregunta3 = new Pregunta('¿Cuanto es:?',[
+const Pregunta3 = new Pregunta('¿Cuanto es: 3 x 3?',[
     {texto:'9',correcta:true},
     {texto:'12',correcta:false},
     {texto:'21',correcta:false},
     {texto:'18',correcta:false}],
     'img/Picture3.png');
 
-const Pregunta4 = new Pregunta('¿Cuanto es:?',[
+const Pregunta4 = new Pregunta('¿Cuanto es: 3 x 4?',[
     {texto:'12',correcta:true},
     {texto:'27',correcta:false},
     {texto:'9',correcta:false},
     {texto:'6',correcta:false}],
     'img/Picture4.png');
 
-const Pregunta5 = new Pregunta('¿Cuanto es:?',[
+const Pregunta5 = new Pregunta('¿Cuanto es: 3 x 5?',[
     {texto:'15',correcta:true},
     {texto:'18',correcta:false},
     {texto:'21',correcta:false},
     {texto:'30',correcta:false}],
     'img/Picture5.png');
 
-const Pregunta6 = new Pregunta('¿Cuanto es:?',[
+const Pregunta6 = new Pregunta('¿Cuanto es: 3 x 6?',[
     {texto:'18',correcta:true},
     {texto:'21',correcta:false},
     {texto:'6',correcta:false},
     {texto:'3',correcta:false}],
     'img/Picture6.png');
 
-const Pregunta7 = new Pregunta('¿Cuanto es:?',[
+const Pregunta7 = new Pregunta('¿Cuanto es: 3 x 7?',[
     {texto:'21',correcta:true},
     {texto:'24',correcta:false},
     {texto:'27',correcta:false},
     {texto:'30',correcta:false}],
     'img/Picture7.png');
 
-const Pregunta8 = new Pregunta('¿Cuanto es:?',[
+const Pregunta8 = new Pregunta('¿Cuanto es: 3 x 8?',[
     {texto:'24',correcta:true},
     {texto:'23',correcta:false},
     {texto:'20',correcta:false},
     {texto:'18',correcta:false}],
     'img/Picture8.png');
 
-const Pregunta9 = new Pregunta('¿Cuanto es:?',[
+const Pregunta9 = new Pregunta('¿Cuanto es: 3 x 9?',[
     {texto:'27',correcta:true},
     {texto:'30',correcta:false},
-    {texto:'15',correcta:false},
-    {texto:'9',correcta:false}],
+    {texto:'18',correcta:false},
+    {texto:'15',correcta:false}],
     'img/Picture9.png');
 
-const Pregunta10 = new Pregunta('¿Cuanto es:?',[
+
+const Pregunta10 = new Pregunta('¿Cuanto es: 3 x 10?',[
     {texto:'30',correcta:true},
     {texto:'12',correcta:false},
     {texto:'15',correcta:false},
@@ -134,7 +135,19 @@ const Pregunta10 = new Pregunta('¿Cuanto es:?',[
     'img/Picture10.png');
 
 //arreglo de preguntas
-var preguntasCreadas = [Pregunta1,Pregunta2,Pregunta3,Pregunta4,Pregunta5,Pregunta6,Pregunta7,Pregunta8,Pregunta9,Pregunta10];
+var preguntasCreadas = [
+    Pregunta1,
+    Pregunta2,
+    Pregunta3,
+    Pregunta4,
+    Pregunta5,
+    Pregunta6,
+    Pregunta7,
+    Pregunta8,
+    Pregunta9,
+    Pregunta10,
+];
+
 
 
 //Muestra en un elemento HTML un texto determinado
@@ -165,7 +178,7 @@ function pintar (elemento, srcImagen) {
     return true;
 }
 
- function removerClase (elemento, claseRemover){
+function removerClase (elemento, claseRemover){
     if (elemento.classList.contains(claseRemover) ){
         elemento.classList.remove(claseRemover);
     }
@@ -173,19 +186,19 @@ function pintar (elemento, srcImagen) {
 }
 
 //Muestra u oculta uno o varios elemento de HTML
- function mostrarElementos(arregloElementos, boolean) {
-       let elementos = arregloElementos;
-       let mostrar = boolean;
+function mostrarElementos(arregloElementos, boolean) {
+    let elementos = arregloElementos;
+    let mostrar = boolean;
 
-       for (const elemento of elementos) {
-           if (mostrar) {
-                reemplazarClase(elemento,'visible','oculto');
-           }else {
-               reemplazarClase(elemento, 'oculto', 'visible');
-           }
-       }
+    for (const elemento of elementos) {
+        if (mostrar) {
+            reemplazarClase(elemento,'visible','oculto');
+        }else {
+            reemplazarClase(elemento, 'oculto', 'visible');
+        }
+    }
 
-   return true;
+    return true;
 }
 
 //Habilita o Deshabilita uno o varios elemento de HTML
@@ -193,7 +206,7 @@ function pintar (elemento, srcImagen) {
     //mostrarElementos(document.getElementsByClassName('botones'));
     //En el caso de que solo sea un elemento debes mandarlo como un arreglo ejp:
     //mostrarElementos([document.getElementById('boton')]);
- function deshabilitarElementos(arregloElementos) {
+function deshabilitarElementos(arregloElementos) {
 
     for (const elemento of arregloElementos) {
         elemento.classList.add('deshabilitado');
@@ -203,7 +216,7 @@ function pintar (elemento, srcImagen) {
     return true;
 }
 
- function restaurarElementos(arregloElementos){
+function restaurarElementos(arregloElementos){
     for (const boton of arregloElementos) {
         boton.disabled = false;
         removerClase (boton, 'opcion--correcta');
@@ -220,7 +233,7 @@ function pintar (elemento, srcImagen) {
     // Escuchar los elementos de clase 'boton' dentro de un contenedor 'boton-contenedor'
 //Devuelve el Id del elemento seleccionado dentro de un contenedor
 //Nota: Se usas una promesa debido a que escucharElementos() es una funcion de naturaleza asincrona
- function elementoSeleccionado (elementoContenedor, claseElementos, evento) {
+function elementoSeleccionado (elementoContenedor, claseElementos, evento) {
     return new Promise (resolve =>{
         const contenedorOpciones = elementoContenedor;
 
@@ -236,7 +249,7 @@ function pintar (elemento, srcImagen) {
 //
 
 //mostrar mensaje de al usuario.
- function mostrarMensaje (textoMensaje, textoBoton) {
+function mostrarMensaje (textoMensaje, textoBoton) {
     return new Promise (resolve => {
         let idContenedorMensaje = 'seccionMensaje';
         let elementoTexto = document.getElementById('mensaje-texto');
@@ -256,17 +269,16 @@ function pintar (elemento, srcImagen) {
 
 
 //Función de carga las pregunta en la página.
- function cargarPregunta(pregunta, tituloEncabezado, ImgPregunta, arregloBotones) {
+function cargarPregunta(pregunta, tituloEncabezado, ImgPregunta, arregloBotones) {
     return new Promise (resolve=>{
         const{encabezado, opciones, imagen, tipo} = pregunta;
 
         escribir(tituloEncabezado, encabezado);
         pintar (ImgPregunta, imagen);
-
-        if(tipo === 0) desordenar(opciones);
+        desordenar(opciones);
 
         for (const indice in arregloBotones) {
-           escribir(arregloBotones[indice], letra(indice) + opciones[indice].texto);
+            escribir(arregloBotones[indice], letra(indice) + opciones[indice].texto);
         }
 
         if (pregunta.tipo === 1) {
@@ -445,6 +457,7 @@ const btnSalir = document.getElementById('btnSalir');
 
         for (const indice in preguntas) {
             const pregunta = preguntas[indice];
+
             escribir(numeroPregunta, (parseInt(indice)+1) + '/' + preguntas.length);
             restaurarElementos(btnsOpciones);
 
