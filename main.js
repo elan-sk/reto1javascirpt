@@ -62,164 +62,174 @@ class Pregunta {
     }
 };
 
-// //Creación de Preguntas =====================
-// //tabla del 3
-// const Pregunta1 = new Pregunta('¿Cuanto es: 3 x 1?',[
-//     {texto:'3',correcta:true},
-//     {texto:'6',correcta:false},
-//     {texto:'1',correcta:false},
-//     {texto:'4',correcta:false}],
-//     'img/Picture1.png');
+//Creación de Preguntas =====================
+//tabla del 3
+const Pregunta3x1 = new Pregunta('¿Cuanto es: 3 x 1?',[
+    {texto:'3',correcta:true},
+    {texto:'6',correcta:false},
+    {texto:'1',correcta:false},
+    {texto:'4',correcta:false}],
+    'img/tabla-3/Picture1.png');
 
-// const Pregunta2 = new Pregunta('¿Cuanto es: 3 x 2?',[
-//     {texto:'6',correcta:true},
-//     {texto:'9',correcta:false},
-//     {texto:'12',correcta:false},
-//     {texto:'24',correcta:false}],
-//     'img/Picture2.png');
+const Pregunta3x2 = new Pregunta('¿Cuanto es: 3 x 2?',[
+    {texto:'6',correcta:true},
+    {texto:'9',correcta:false},
+    {texto:'12',correcta:false},
+    {texto:'24',correcta:false}],
+    'img/tabla-3/Picture2.png');
 
-// const Pregunta3 = new Pregunta('¿Cuanto es: 3 x 3?',[
-//     {texto:'9',correcta:true},
-//     {texto:'12',correcta:false},
-//     {texto:'21',correcta:false},
-//     {texto:'18',correcta:false}],
-//     'img/Picture3.png');
+const Pregunta3x3 = new Pregunta('¿Cuanto es: 3 x 3?',[
+    {texto:'9',correcta:true},
+    {texto:'12',correcta:false},
+    {texto:'21',correcta:false},
+    {texto:'18',correcta:false}],
+    'img/tabla-3/Picture3.png');
 
-// const Pregunta4 = new Pregunta('¿Cuanto es: 3 x 4?',[
-//     {texto:'12',correcta:true},
-//     {texto:'27',correcta:false},
-//     {texto:'9',correcta:false},
-//     {texto:'6',correcta:false}],
-//     'img/Picture4.png');
+const Pregunta3x4 = new Pregunta('¿Cuanto es: 3 x 4?',[
+    {texto:'12',correcta:true},
+    {texto:'27',correcta:false},
+    {texto:'9',correcta:false},
+    {texto:'6',correcta:false}],
+    'img/tabla-3/Picture4.png');
 
-// const Pregunta5 = new Pregunta('¿Cuanto es: 3 x 5?',[
-//     {texto:'15',correcta:true},
-//     {texto:'18',correcta:false},
-//     {texto:'21',correcta:false},
-//     {texto:'30',correcta:false}],
-//     'img/Picture5.png');
+const Pregunta3x5 = new Pregunta('¿Cuanto es: 3 x 5?',[
+    {texto:'15',correcta:true},
+    {texto:'18',correcta:false},
+    {texto:'21',correcta:false},
+    {texto:'30',correcta:false}],
+    'img/tabla-3/Picture5.png');
 
-// const Pregunta6 = new Pregunta('¿Cuanto es: 3 x 6?',[
-//     {texto:'18',correcta:true},
-//     {texto:'21',correcta:false},
-//     {texto:'6',correcta:false},
-//     {texto:'3',correcta:false}],
-//     'img/Picture6.png');
+const Pregunta3x6 = new Pregunta('¿Cuanto es: 3 x 6?',[
+    {texto:'18',correcta:true},
+    {texto:'21',correcta:false},
+    {texto:'6',correcta:false},
+    {texto:'3',correcta:false}],
+    'img/tabla-3/Picture6.png');
 
-// const Pregunta7 = new Pregunta('¿Cuanto es: 3 x 7?',[
-//     {texto:'21',correcta:true},
-//     {texto:'24',correcta:false},
-//     {texto:'27',correcta:false},
-//     {texto:'30',correcta:false}],
-//     'img/Picture7.png');
+const Pregunta3x7 = new Pregunta('¿Cuanto es: 3 x 7?',[
+    {texto:'21',correcta:true},
+    {texto:'24',correcta:false},
+    {texto:'27',correcta:false},
+    {texto:'30',correcta:false}],
+    'img/tabla-3/Picture7.png');
 
-// const Pregunta8 = new Pregunta('¿Cuanto es: 3 x 8?',[
-//     {texto:'24',correcta:true},
-//     {texto:'23',correcta:false},
-//     {texto:'20',correcta:false},
-//     {texto:'18',correcta:false}],
-//     'img/Picture8.png');
+const Pregunta3x8 = new Pregunta('¿Cuanto es: 3 x 8?',[
+    {texto:'24',correcta:true},
+    {texto:'23',correcta:false},
+    {texto:'20',correcta:false},
+    {texto:'18',correcta:false}],
+    'img/tabla-3/Picture8.png');
 
-// const Pregunta9 = new Pregunta('¿Cuanto es: 3 x 9?',[
-//     {texto:'27',correcta:true},
-//     {texto:'30',correcta:false},
-//     {texto:'18',correcta:false},
-//     {texto:'15',correcta:false}],
-//     'img/Picture9.png');
+const Pregunta3x9 = new Pregunta('¿Cuanto es: 3 x 9?',[
+    {texto:'27',correcta:true},
+    {texto:'30',correcta:false},
+    {texto:'18',correcta:false},
+    {texto:'15',correcta:false}],
+    'img/tabla-3/Picture9.png');
 
 
-// const Pregunta10 = new Pregunta('¿Cuanto es: 3 x 10?',[
-//     {texto:'30',correcta:true},
-//     {texto:'12',correcta:false},
-//     {texto:'15',correcta:false},
-//     {texto:'9',correcta:false}],
-//     'img/Picture10.png');
+const Pregunta3x10 = new Pregunta('¿Cuanto es: 3 x 10?',[
+    {texto:'30',correcta:true},
+    {texto:'12',correcta:false},
+    {texto:'15',correcta:false},
+    {texto:'9',correcta:false}],
+    'img/tabla-3/Picture10.png');
 
 //Creación de Preguntas =====================
 //tabla del 4
-const Pregunta1 = new Pregunta('¿Cuanto es: 4 x 1?',[
+const Pregunta4x1 = new Pregunta('¿Cuanto es: 4 x 1?',[
     {texto:'4',correcta:true},
     {texto:'8',correcta:false},
     {texto:'16',correcta:false},
     {texto:'18',correcta:false}],
-    'img/Picture1.png');
+    'img/tabla-4/Picture1.png');
 
-const Pregunta2 = new Pregunta('¿Cuanto es: 4 x 2?',[
+const Pregunta4x2 = new Pregunta('¿Cuanto es: 4 x 2?',[
     {texto:'8',correcta:true},
     {texto:'12',correcta:false},
     {texto:'0',correcta:false},
     {texto:'40',correcta:false}],
-    'img/Picture2.png');
+    'img/tabla-4/Picture2.png');
 
-const Pregunta3 = new Pregunta('¿Cuanto es: 4 x 3?',[
+const Pregunta4x3 = new Pregunta('¿Cuanto es: 4 x 3?',[
     {texto:'12',correcta:true},
     {texto:'24',correcta:false},
     {texto:'20',correcta:false},
     {texto:'18',correcta:false}],
-    'img/Picture3.png');
+    'img/tabla-4/Picture3.png');
 
-const Pregunta4 = new Pregunta('¿Cuanto es: 4 x 4?',[
+const Pregunta4x4 = new Pregunta('¿Cuanto es: 4 x 4?',[
     {texto:'16',correcta:true},
     {texto:'18',correcta:false},
     {texto:'9',correcta:false},
     {texto:'6',correcta:false}],
-    'img/Picture4.png');
+    'img/tabla-4/Picture4.png');
 
-const Pregunta5 = new Pregunta('¿Cuanto es: 4 x 5?',[
+const Pregunta4x5 = new Pregunta('¿Cuanto es: 4 x 5?',[
     {texto:'20',correcta:true},
     {texto:'18',correcta:false},
     {texto:'8',correcta:false},
     {texto:'4',correcta:false}],
-    'img/Picture5.png');
+    'img/tabla-4/Picture5.png');
 
-const Pregunta6 = new Pregunta('¿Cuanto es: 4 x 6?',[
+const Pregunta4x6 = new Pregunta('¿Cuanto es: 4 x 6?',[
     {texto:'24',correcta:true},
     {texto:'32',correcta:false},
     {texto:'36',correcta:false},
     {texto:'8',correcta:false}],
-    'img/Picture6.png');
+    'img/tabla-4/Picture6.png');
 
-const Pregunta7 = new Pregunta('¿Cuanto es: 4 x 7?',[
+const Pregunta4x7 = new Pregunta('¿Cuanto es: 4 x 7?',[
     {texto:'28',correcta:true},
     {texto:'32',correcta:false},
     {texto:'36',correcta:false},
     {texto:'18',correcta:false}],
-    'img/Picture7.png');
+    'img/tabla-4/Picture7.png');
 
-const Pregunta8 = new Pregunta('¿Cuanto es: 4 x 8?',[
+const Pregunta4x8 = new Pregunta('¿Cuanto es: 4 x 8?',[
     {texto:'32',correcta:true},
     {texto:'36',correcta:false},
     {texto:'24',correcta:false},
     {texto:'16',correcta:false}],
-    'img/Picture8.png');
+    'img/tabla-4/Picture8.png');
 
-const Pregunta9 = new Pregunta('¿Cuanto es: 4 x 9?',[
+const Pregunta4x9 = new Pregunta('¿Cuanto es: 4 x 9?',[
     {texto:'36',correcta:true},
     {texto:'40',correcta:false},
     {texto:'32',correcta:false},
     {texto:'18',correcta:false}],
-    'img/Picture9.png');
+    'img/tabla-4/Picture9.png');
 
 
-const Pregunta10 = new Pregunta('¿Cuanto es: 4 x 10?',[
+const Pregunta4x10 = new Pregunta('¿Cuanto es: 4 x 10?',[
     {texto:'40',correcta:true},
     {texto:'36',correcta:false},
     {texto:'8',correcta:false},
     {texto:'32',correcta:false}],
-    'img/Picture10.png');
+    'img/tabla-4/Picture10.png');
 
 //arreglo de preguntas
 var preguntasCreadas = [
-    Pregunta1,
-    Pregunta2,
-    Pregunta3,
-    Pregunta4,
-    Pregunta5,
-    Pregunta6,
-    Pregunta7,
-    Pregunta8,
-    Pregunta9,
-    Pregunta10,
+    Pregunta3x1,
+    Pregunta3x2,
+    Pregunta3x3,
+    Pregunta3x4,
+    Pregunta3x5,
+    Pregunta3x6,
+    Pregunta3x7,
+    Pregunta3x8,
+    Pregunta3x9,
+    Pregunta3x10,
+    Pregunta4x1,
+    Pregunta4x2,
+    Pregunta4x3,
+    Pregunta4x4,
+    Pregunta4x5,
+    Pregunta4x6,
+    Pregunta4x7,
+    Pregunta4x8,
+    Pregunta4x9,
+    Pregunta4x10,
 ];
 
 
